@@ -395,7 +395,7 @@
 		F5EF9E46253B2A8A00139E34 /* BGV_Adder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BGV_Adder.entitlements; sourceTree = "<group>"; };
 		F5EF9E70253B2B2600139E34 /* libhelib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libhelib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5EF9EA9253B2B3400139E34 /* BGV-Adder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BGV-Adder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F5EF9EAA253B2B3400139E34 /* BGV-Adder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BGV-Adder-Info.plist"; path = "/Users/hindrikstegenga/Repos/fhe-toolkit-macos/BGV-Adder-Info.plist"; sourceTree = "<absolute>"; };
+		F5EF9EAA253B2B3400139E34 /* BGV-Adder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BGV-Adder-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1326,7 +1326,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CODE_SIGN_ENTITLEMENTS = "Privacy Preserving Search/fhe-toolkit-macos.entitlements";
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
@@ -1361,7 +1361,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CODE_SIGN_ENTITLEMENTS = "Privacy Preserving Search/fhe-toolkit-macos.entitlements";
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
@@ -1397,10 +1397,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_MODULES_DISABLE_PRIVATE_WARNING = YES;
 				CODE_SIGN_ENTITLEMENTS = "BGV-Adder/BGV_Adder.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = UXN3XPWWY2;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = NO;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				HEADER_SEARCH_PATHS = (
@@ -1442,10 +1442,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_MODULES_DISABLE_PRIVATE_WARNING = YES;
 				CODE_SIGN_ENTITLEMENTS = "BGV-Adder/BGV_Adder.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = UXN3XPWWY2;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = NO;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				HEADER_SEARCH_PATHS = (
