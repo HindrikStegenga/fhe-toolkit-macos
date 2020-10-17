@@ -57,9 +57,9 @@ unsigned long bits = 1000;
 // Number of columns of Key-Switching matrix (default = 2 or 3)
 unsigned long c = 2;
 // Size of NTL thread pool (default =1)
-unsigned long nthreads = 1;
+unsigned long nthreads = 16;
 // debug output (default no debug output)
-unsigned long debug = 0;
+unsigned long debug = 1;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
