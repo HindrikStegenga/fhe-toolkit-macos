@@ -25,7 +25,7 @@
 }
 
 - (IBAction)didPressAddBtn:(id)sender {
-    
+    self.
 }
 
 
