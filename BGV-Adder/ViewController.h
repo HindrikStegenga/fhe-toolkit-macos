@@ -12,6 +12,7 @@
 
 @property (weak) IBOutlet NSTextField *leftTextField;
 @property (weak) IBOutlet NSTextField *rightTextField;
+@property (weak) IBOutlet NSTextFieldCell *resultLabel;
 
 @end
 

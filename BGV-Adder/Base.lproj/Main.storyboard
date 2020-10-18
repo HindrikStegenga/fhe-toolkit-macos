@@ -772,6 +772,7 @@
                     </view>
                     <connections>
                         <outlet property="leftTextField" destination="jV5-pc-6A9" id="eBO-lu-uHz"/>
+                        <outlet property="resultLabel" destination="UTg-sQ-vRb" id="2Ks-Vm-1GY"/>
                         <outlet property="rightTextField" destination="5Ft-pP-qEp" id="8bR-kJ-UCx"/>
                     </connections>
                 </viewController>
