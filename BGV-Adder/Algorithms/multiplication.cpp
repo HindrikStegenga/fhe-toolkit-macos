@@ -7,8 +7,9 @@
 //
 
 #include "multiplication.hpp"
+#include "base_context.hpp"
 
-
-helib::Context create_context() {
-    
+long compute_bgv_multiply(long a, long b) {
+    auto context = PreparedContext();
+    return 0;
 }

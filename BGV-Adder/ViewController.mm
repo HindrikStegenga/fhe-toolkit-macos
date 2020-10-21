@@ -12,6 +12,7 @@
 #include <helib/binaryArith.h>
 #include <helib/intraSlot.h>
 #include <helib/helib.h>
+#include "Algorithms/multiplication.hpp"
 
 @implementation ViewController
 
@@ -19,6 +20,15 @@
     [super viewDidLoad];
 
     // Do any additional setup after loading the view.
+}
+
+- (void)viewDidAppear {
+    [super viewDidAppear];
+    self.view.window.delegate = self;
+}
+
+- (void)windowWillClose:(NSNotification *)notification {
+    exit(0);
 }
 
 
@@ -29,6 +39,16 @@
 }
 
 - (IBAction)didPressAddBtn:(id)sender {
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        std::cout << compute_bgv_multiply(1, 2) << std::endl;
+    });
+    
+    
+    self.resultLabel.stringValue=@"This is the sum";
+    return;
+    
+    
     // plaintext prime modulus
     long p = 2;
     // Cyclotomic polynomial - defines phi(m).
@@ -236,7 +256,7 @@
     helib::decryptBinaryNums(decrypted_result, result_wrapper, secret_key, ea);
     std::cout << "popcnt(a) = " << decrypted_result.back() << std::endl;
 
-    self.resultLabel.stringValue=@"This is the sum";
+    
 }
 
 

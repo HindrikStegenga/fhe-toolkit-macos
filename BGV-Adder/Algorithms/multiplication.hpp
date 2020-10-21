@@ -13,6 +13,6 @@
 #include <helib/helib.h>
 
 
-helib::Context create_context();
+long compute_bgv_multiply(long a, long b);
 
 #endif /* multiplication_hpp */
