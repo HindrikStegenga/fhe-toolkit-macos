@@ -18,21 +18,22 @@ using helib::EncryptedArray;
 
 BaseContext::BaseContext() : context(
                                      Context(this->m, this->p, this->r, this->generators, this->orders)) {
-    cout << "Generating modulus chain..." << endl;
+    cout << "Generating modulus chain." << endl;
     buildModChain(this->context, this->modulus_bits, this->c);
-    cout << "Making bootstrappable..." << endl;
+    cout << "Making bootstrappable." << endl;
     context.makeBootstrappable(
                                convert<NTL::Vec<long>, vector<long>>(mvec));
     context.zMStar.printout();
     cout << endl;
     cout << "Security: " << context.securityLevel() << endl;
-    cout << "Creating secret key..." << endl;
 }
 
 PreparedContext::PreparedContext() : secret_key(helib::SecKey(this->context)) {
-    cout << "Generating bootrstrapping data.." << endl;
+    cout << "Generating secret key." << endl;
+    secret_key.GenSecKey();
+    cout << "Generating bootrstrapping data." << endl;
     secret_key.genRecryptData();
-    cout << "Building unpack slot encoding..." << endl;
+    cout << "Building unpack slot encoding." << endl;
     buildUnpackSlotEncoding(this->unpack_slot_encoding, this->encrypted_array());
     cout << "Number of slots: " << this->encrypted_array().size() << endl;
 }

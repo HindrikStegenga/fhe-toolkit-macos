@@ -13,6 +13,6 @@
 #include <helib/helib.h>
 
 
-long compute_bgv_multiply(long a, long b);
+long compute_bgv_multiply(uint16_t a, uint16_t b);
 
 #endif /* multiplication_hpp */
