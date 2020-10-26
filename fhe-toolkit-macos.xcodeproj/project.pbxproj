@@ -89,6 +89,7 @@
 		F5EF9EB5253B2BE900139E34 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5EF9E44253B2A8A00139E34 /* main.m */; };
 		F5EF9EB9253B2C0200139E34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5EF9E3E253B2A8A00139E34 /* Assets.xcassets */; };
 		F5EF9EBA253B2C0200139E34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5EF9E40253B2A8A00139E34 /* Main.storyboard */; };
+		F5EFFC7B254762B40081DDB7 /* ckks_add.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5EFFC79254762B40081DDB7 /* ckks_add.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -405,6 +406,8 @@
 		F5EF9E70253B2B2600139E34 /* libhelib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libhelib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5EF9EA9253B2B3400139E34 /* BGV-Adder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BGV-Adder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5EF9EAA253B2B3400139E34 /* BGV-Adder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BGV-Adder-Info.plist"; sourceTree = SOURCE_ROOT; };
+		F5EFFC79254762B40081DDB7 /* ckks_add.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ckks_add.cpp; sourceTree = "<group>"; };
+		F5EFFC7A254762B40081DDB7 /* ckks_add.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ckks_add.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -885,6 +888,7 @@
 		F53EFA8025406F660059164D /* Algorithms */ = {
 			isa = PBXGroup;
 			children = (
+				F5EFFC78254762780081DDB7 /* CKKSAdd */,
 				F56A9CD52546D45300A323C4 /* CrossProduct */,
 				F56A9CD42546D44800A323C4 /* Multiplication */,
 			);
@@ -927,6 +931,15 @@
 				F5EF9E46253B2A8A00139E34 /* BGV_Adder.entitlements */,
 			);
 			path = "BGV-Adder";
+			sourceTree = "<group>";
+		};
+		F5EFFC78254762780081DDB7 /* CKKSAdd */ = {
+			isa = PBXGroup;
+			children = (
+				F5EFFC79254762B40081DDB7 /* ckks_add.cpp */,
+				F5EFFC7A254762B40081DDB7 /* ckks_add.hpp */,
+			);
+			path = CKKSAdd;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1123,6 +1136,7 @@
 			files = (
 				F5EF9EB1253B2BE900139E34 /* AppDelegate.h in Sources */,
 				F5EF9EB2253B2BE900139E34 /* AppDelegate.m in Sources */,
+				F5EFFC7B254762B40081DDB7 /* ckks_add.cpp in Sources */,
 				F5EF9EB3253B2BE900139E34 /* ViewController.h in Sources */,
 				F53EFA8425406FDE0059164D /* multiplication.cpp in Sources */,
 				F56A9CD82546D4CC00A323C4 /* cross_product.cpp in Sources */,

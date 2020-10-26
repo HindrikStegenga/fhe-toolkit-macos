@@ -14,6 +14,9 @@
 #include <helib/helib.h>
 #include "Algorithms/Multiplication/multiplication.hpp"
 #include "Algorithms/CrossProduct/cross_product.hpp"
+#include "Algorithms/CKKSAdd/ckks_add.hpp"
+#include <iostream>
+
 
 @implementation ViewController
 
@@ -38,8 +41,21 @@
 
     // Update the view, if already loaded.
 }
+- (IBAction)didPressCkksAddBtn:(id)sender {
+    double a = [self.ckksLeftTextField.stringValue doubleValue];
+    double b = [self.ckksRightTextField.stringValue doubleValue];
+    self.ckksResultLbl.stringValue = @"Please wait...";
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        auto value = ckks_add_doubles(a, b);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.ckksResultLbl.stringValue = [NSString stringWithFormat:@"Result %f", value];
+        });
+    });
+    
+}
 
 - (IBAction)didPressMulBtn:(id)sender {
+       
     uint16_t a = [self.leftTextField.stringValue intValue];
     uint16_t b = [self.rightTextField.stringValue intValue];
     self.resultLabel.stringValue=@"Please wait...";

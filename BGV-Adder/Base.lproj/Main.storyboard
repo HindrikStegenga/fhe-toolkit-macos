@@ -717,14 +717,14 @@
                                 <tabViewItems>
                                     <tabViewItem label="Multiply" identifier="" id="qNg-2t-uBw">
                                         <view key="view" id="etB-Kj-XI4">
-                                            <rect key="frame" x="10" y="33" width="378" height="95"/>
+                                            <rect key="frame" x="10" y="33" width="700" height="95"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kCB-Od-2WN">
-                                                    <rect key="frame" x="8" y="66" width="362" height="21"/>
+                                                    <rect key="frame" x="8" y="66" width="684" height="21"/>
                                                     <subviews>
                                                         <textField verticalHuggingPriority="750" placeholderIntrinsicWidth="20" placeholderIntrinsicHeight="21" translatesAutoresizingMaskIntoConstraints="NO" id="rl8-lD-3eW">
-                                                            <rect key="frame" x="0.0" y="0.0" width="118" height="21"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="225" height="21"/>
                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="f4L-0i-O4y">
                                                                 <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" formatWidth="-1" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="0uK-U7-dul"/>
                                                                 <font key="font" metaFont="system"/>
@@ -733,7 +733,7 @@
                                                             </textFieldCell>
                                                         </textField>
                                                         <textField verticalHuggingPriority="750" placeholderIntrinsicWidth="20" placeholderIntrinsicHeight="21" translatesAutoresizingMaskIntoConstraints="NO" id="NN4-5t-wCp">
-                                                            <rect key="frame" x="122" y="0.0" width="118" height="21"/>
+                                                            <rect key="frame" x="229" y="0.0" width="226" height="21"/>
                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="dGQ-lY-9mj">
                                                                 <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" formatWidth="-1" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="Gnd-3D-exu"/>
                                                                 <font key="font" metaFont="system"/>
@@ -742,7 +742,7 @@
                                                             </textFieldCell>
                                                         </textField>
                                                         <button verticalHuggingPriority="750" placeholderIntrinsicWidth="20" placeholderIntrinsicHeight="21" translatesAutoresizingMaskIntoConstraints="NO" id="xUy-zI-qRF">
-                                                            <rect key="frame" x="238" y="-7" width="130" height="32"/>
+                                                            <rect key="frame" x="453" y="-7" width="237" height="32"/>
                                                             <buttonCell key="cell" type="push" title="Compute" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Be8-31-GWx">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="system"/>
@@ -764,7 +764,7 @@
                                                     </customSpacing>
                                                 </stackView>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WI3-h5-cX0">
-                                                    <rect key="frame" x="6" y="42" width="366" height="16"/>
+                                                    <rect key="frame" x="6" y="42" width="688" height="16"/>
                                                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Please press the compute button." id="uSq-HN-onv">
                                                         <font key="font" usesAppearanceFont="YES"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -779,6 +779,73 @@
                                                 <constraint firstItem="WI3-h5-cX0" firstAttribute="leading" secondItem="etB-Kj-XI4" secondAttribute="leading" constant="8" id="fAw-mn-sml"/>
                                                 <constraint firstItem="WI3-h5-cX0" firstAttribute="top" secondItem="kCB-Od-2WN" secondAttribute="bottom" constant="8" id="p2C-Do-syq"/>
                                                 <constraint firstAttribute="trailing" secondItem="WI3-h5-cX0" secondAttribute="trailing" constant="8" id="sFl-FL-iIK"/>
+                                            </constraints>
+                                        </view>
+                                    </tabViewItem>
+                                    <tabViewItem label="CKKS Add" identifier="" id="8lc-mC-dfL">
+                                        <view key="view" id="Cb3-cm-XnH">
+                                            <rect key="frame" x="10" y="33" width="700" height="95"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v5w-2v-Ihm">
+                                                    <rect key="frame" x="8" y="66" width="684" height="21"/>
+                                                    <subviews>
+                                                        <textField verticalHuggingPriority="750" placeholderIntrinsicWidth="20" placeholderIntrinsicHeight="21" translatesAutoresizingMaskIntoConstraints="NO" id="6ty-W6-ADG">
+                                                            <rect key="frame" x="0.0" y="0.0" width="225" height="21"/>
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="6Kg-PX-2v3">
+                                                                <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" formatWidth="-1" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="stO-if-Cgn"/>
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                        </textField>
+                                                        <textField verticalHuggingPriority="750" placeholderIntrinsicWidth="20" placeholderIntrinsicHeight="21" translatesAutoresizingMaskIntoConstraints="NO" id="9Z1-TE-a2C">
+                                                            <rect key="frame" x="229" y="0.0" width="226" height="21"/>
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="rYn-VF-BjO">
+                                                                <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" formatWidth="-1" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="Hkl-Bq-1ql"/>
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                        </textField>
+                                                        <button verticalHuggingPriority="750" placeholderIntrinsicWidth="20" placeholderIntrinsicHeight="21" translatesAutoresizingMaskIntoConstraints="NO" id="c6N-3m-6W6">
+                                                            <rect key="frame" x="453" y="-7" width="237" height="32"/>
+                                                            <buttonCell key="cell" type="push" title="Compute" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MOj-HA-J0o">
+                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                <font key="font" metaFont="system"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="didPressCkksAddBtn:" target="XfG-lQ-9wD" id="zQT-Gk-ns6"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <visibilityPriorities>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                    </visibilityPriorities>
+                                                    <customSpacing>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                    </customSpacing>
+                                                </stackView>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rK9-qE-nmk">
+                                                    <rect key="frame" x="6" y="42" width="688" height="16"/>
+                                                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Please press the compute button." id="QOJ-bb-VS1">
+                                                        <font key="font" usesAppearanceFont="YES"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="rK9-qE-nmk" firstAttribute="leading" secondItem="Cb3-cm-XnH" secondAttribute="leading" constant="8" id="46x-lf-g91"/>
+                                                <constraint firstAttribute="trailing" secondItem="rK9-qE-nmk" secondAttribute="trailing" constant="8" id="7tZ-rU-r6W"/>
+                                                <constraint firstItem="v5w-2v-Ihm" firstAttribute="leading" secondItem="Cb3-cm-XnH" secondAttribute="leading" constant="8" id="Cwt-jn-X3P"/>
+                                                <constraint firstAttribute="trailing" secondItem="v5w-2v-Ihm" secondAttribute="trailing" constant="8" id="ZuB-Le-F63"/>
+                                                <constraint firstItem="v5w-2v-Ihm" firstAttribute="top" secondItem="Cb3-cm-XnH" secondAttribute="top" constant="8" id="bAS-su-i1i"/>
+                                                <constraint firstItem="rK9-qE-nmk" firstAttribute="top" secondItem="v5w-2v-Ihm" secondAttribute="bottom" constant="8" id="itn-vO-NAa"/>
                                             </constraints>
                                         </view>
                                     </tabViewItem>
@@ -1092,6 +1159,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="ckksLeftTextField" destination="6ty-W6-ADG" id="BRF-u8-pzx"/>
+                        <outlet property="ckksResultLbl" destination="rK9-qE-nmk" id="iPg-x9-bQc"/>
+                        <outlet property="ckksRightTextField" destination="9Z1-TE-a2C" id="iMC-bc-kAg"/>
                         <outlet property="crossResultX" destination="GdF-1L-SEk" id="jdr-bp-W3U"/>
                         <outlet property="crossResultY" destination="YOk-cp-Gq8" id="Xqd-Cz-Qoy"/>
                         <outlet property="crossResultZ" destination="Or1-nI-Lbx" id="4uh-yy-9hG"/>

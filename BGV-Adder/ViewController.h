@@ -26,5 +26,8 @@
 @property (weak) IBOutlet NSTextField *crossResultZ;
 @property (weak) IBOutlet NSTextField *crossResultY;
 
+@property (weak) IBOutlet NSTextField *ckksLeftTextField;
+@property (weak) IBOutlet NSTextField *ckksRightTextField;
+@property (weak) IBOutlet NSTextField *ckksResultLbl;
 
 @end
