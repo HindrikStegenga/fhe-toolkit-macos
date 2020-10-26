@@ -12,7 +12,8 @@
 #include <helib/binaryArith.h>
 #include <helib/intraSlot.h>
 #include <helib/helib.h>
-#include "Algorithms/multiplication.hpp"
+#include "Algorithms/Multiplication/multiplication.hpp"
+#include "Algorithms/CrossProduct/cross_product.hpp"
 
 @implementation ViewController
 
@@ -39,18 +40,22 @@
 }
 
 - (IBAction)didPressAddBtn:(id)sender {
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        uint16_t a = [self.leftTextField.stringValue intValue];
-        uint16_t b = [self.rightTextField.stringValue intValue];
-        
-        auto value = compute_bgv_multiply(a, b);
+    uint16_t a = [self.leftTextField.stringValue intValue];
+    uint16_t b = [self.rightTextField.stringValue intValue];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        //auto value = compute_bgv_multiply(a, b);
+        u16 value = compute_cross_product(std::array<u16,3>{1,2,3}, std::array<u16,3>{1,2,3})[0];
         std::cout << value << std::endl;
-        self.resultLabel.stringValue=[NSString stringWithFormat: @"Result %u", value];
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            self.resultLabel.stringValue=[NSString stringWithFormat: @"Result %u", value];
+        });
     });
     
     return;
+}
+
+- (IBAction)didPressMatrixBtn:(id)sender {
+    
 }
 
 
