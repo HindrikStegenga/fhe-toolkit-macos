@@ -39,24 +39,43 @@
     // Update the view, if already loaded.
 }
 
-- (IBAction)didPressAddBtn:(id)sender {
+- (IBAction)didPressMulBtn:(id)sender {
     uint16_t a = [self.leftTextField.stringValue intValue];
     uint16_t b = [self.rightTextField.stringValue intValue];
+    self.resultLabel.stringValue=@"Please wait...";
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        //auto value = compute_bgv_multiply(a, b);
-        std::array<long, 3> value = compute_cross_product(std::array<i16,3>{1,2,3}, std::array<i16,3>{3,2,1});
-        for (size_t i = 0; i < 3; ++i)
-            std::cout << value[i] << std::endl;
+        auto value = compute_bgv_multiply(a, b);
         dispatch_async(dispatch_get_main_queue(), ^(void) {
-            self.resultLabel.stringValue=[NSString stringWithFormat: @"Result (%d, %d, %d)", value[0], value[1], value[2]];
+            self.resultLabel.stringValue=[NSString stringWithFormat: @"Result %u", value];
         });
     });
     
     return;
 }
 
-- (IBAction)didPressMatrixBtn:(id)sender {
+- (IBAction)didPressCrossProductBtn:(id)sender {
+    int16_t ax = [self.lhsX.stringValue intValue];
+    int16_t ay = [self.lhsY.stringValue intValue];
+    int16_t az = [self.lhsZ.stringValue intValue];
     
+    int16_t bx = [self.rhsX.stringValue intValue];
+    int16_t by = [self.rhsY.stringValue intValue];
+    int16_t bz = [self.rhsZ.stringValue intValue];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        std::array<long, 3> value = compute_cross_product(
+                                                          std::array<i16,3>{ax, ay, az}, std::array<i16,3>{bx, by, bz});
+        for (size_t i = 0; i < 3; ++i)
+            std::cout << value[i] << std::endl;
+        
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            self.crossResultX.stringValue=[NSString stringWithFormat:@"x: %d", value[0]];
+            self.crossResultY.stringValue=[NSString stringWithFormat:@"y: %d", value[1]];
+            self.crossResultZ.stringValue=[NSString stringWithFormat:@"z: %d", value[2]];
+        });
+    });
+    
+    return;
 }
 
 

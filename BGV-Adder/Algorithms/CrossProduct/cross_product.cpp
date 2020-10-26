@@ -15,14 +15,15 @@ using helib::Ctxt;
 
 array<long, CV_SIZE> compute_cross_product(array<i16, CV_SIZE> lhs, array<i16, CV_SIZE> rhs) {
     long k = 128; // Security parameter
-    long L = 16; // Number of levels in the modulus
+    long L = 16; // Number of levels in the modulus default is 16
     long c = 3; // Nr of columns in key switch matrix.
     long w = 64; // secret key hamming weight
     
     // Change to 65537 for noise warning. (Always fun times)
     // Compensate for that by setting L = 128. (Increase modchain basically)
+    // Set P to 65537 and L to 32 to showcase decryption failures.
     
-    long p = 1021; // plaintext base
+    long p = 1021; // plaintext base default = 1021
     long d = 0; // Degree of field extension
     long r = 1; // hensel lifting
     
