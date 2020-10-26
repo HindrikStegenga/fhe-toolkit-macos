@@ -44,7 +44,7 @@
     uint16_t b = [self.rightTextField.stringValue intValue];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         //auto value = compute_bgv_multiply(a, b);
-        u16 value = compute_cross_product(std::array<u16,3>{1,2,3}, std::array<u16,3>{1,2,3})[0];
+        u16 value = compute_cross_product(std::array<u16,3>{1,2,3}, std::array<u16,3>{3,2,1})[0];
         std::cout << value << std::endl;
         dispatch_async(dispatch_get_main_queue(), ^(void) {
             self.resultLabel.stringValue=[NSString stringWithFormat: @"Result %u", value];

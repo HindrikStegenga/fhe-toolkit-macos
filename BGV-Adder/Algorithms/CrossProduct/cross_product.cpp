@@ -9,10 +9,11 @@
 #include "cross_product.hpp"
 #include <helib/FHE.h>
 #include <NTL/ZZX.h>
+#include <NTL/tools.h>
 
 using helib::Ctxt;
 
-array<u16, 3> compute_cross_product(array<u16, 3> lhs, array<u16, 3> rhs) {
+array<long, CV_SIZE> compute_cross_product(array<u16, CV_SIZE> lhs, array<u16, CV_SIZE> rhs) {
     long k = 128; // Security parameter
     long L = 16; // Number of levels in the modulus
     long c = 3; // Nr of columns in key switch matrix.
@@ -34,18 +35,40 @@ array<u16, 3> compute_cross_product(array<u16, 3> lhs, array<u16, 3> rhs) {
     auto secretKey = helib::SecKey(context);
     secretKey.GenSecKey();
     const helib::PubKey& publicKey = secretKey;
-    
-    // Initialize cipherTexts
-    Ctxt lhsc(publicKey), rhsc(publicKey);
+       
+    // Initialize ciphertexts
+    array<Ctxt, CV_SIZE> lhs_ciphertext {
+        Ctxt(publicKey),
+        Ctxt(publicKey),
+        Ctxt(publicKey)
+    }, rhs_ciphertext {
+        Ctxt(publicKey),
+        Ctxt(publicKey),
+        Ctxt(publicKey)
+    };
     
     // Plaintext must be encrypted as a polynomial using zzx api.
-    publicKey.Encrypt(lhsc, NTL::ZZX(10));
-    publicKey.Encrypt(rhsc, NTL::ZZX(20));
+    for (size_t i = 0; i < CV_SIZE; ++i) {
+        publicKey.Encrypt(lhs_ciphertext[i], NTL::ZZX(lhs[i]));
+        publicKey.Encrypt(rhs_ciphertext[i], NTL::ZZX(rhs[i]));
+    }
     
-    Ctxt result = lhsc;
-    result += rhsc;
+    // Apply operations on the ciphertexts.
+    array<Ctxt, CV_SIZE> cipher_results = lhs_ciphertext;
+    for (size_t i = 0; i < CV_SIZE; ++i) {
+        cipher_results[i] *= rhs_ciphertext[i];
+    }
     
-    NTL::ZZX plaintext_result;
-    secretKey.Decrypt(plaintext_result, result);
-    std::cout << plaintext_result[0] << std::endl;
+    // Decrypt the results using secret key and convert back from
+    // polynomial representation to numeric.
+    array<long, CV_SIZE> return_values = {0,0,0};
+    array<NTL::ZZX, CV_SIZE> plaintext_results;
+    for (size_t i = 0; i < 3; ++i) {
+        NTL::ZZX zzx;
+        secretKey.Decrypt(zzx, cipher_results[i]);
+        std::cout << zzx << std::endl;
+        conv(return_values[i], zzx[0]);
+    }
+
+    return return_values;
 }
