@@ -15,9 +15,9 @@
 #include <stdint.h>
 
 using std::array;
-typedef uint16_t u16;
+typedef int16_t i16;
 const static size_t CV_SIZE = 3;
 
-array<long, CV_SIZE> compute_cross_product(array<u16, CV_SIZE> lhs, array<u16, CV_SIZE> rhs);
+array<long, CV_SIZE> compute_cross_product(array<i16, CV_SIZE> lhs, array<i16, CV_SIZE> rhs);
 
 #endif /* cross_product_hpp */

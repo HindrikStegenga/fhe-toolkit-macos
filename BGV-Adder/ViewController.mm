@@ -44,10 +44,11 @@
     uint16_t b = [self.rightTextField.stringValue intValue];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         //auto value = compute_bgv_multiply(a, b);
-        u16 value = compute_cross_product(std::array<u16,3>{1,2,3}, std::array<u16,3>{3,2,1})[0];
-        std::cout << value << std::endl;
+        std::array<long, 3> value = compute_cross_product(std::array<i16,3>{1,2,3}, std::array<i16,3>{3,2,1});
+        for (size_t i = 0; i < 3; ++i)
+            std::cout << value[i] << std::endl;
         dispatch_async(dispatch_get_main_queue(), ^(void) {
-            self.resultLabel.stringValue=[NSString stringWithFormat: @"Result %u", value];
+            self.resultLabel.stringValue=[NSString stringWithFormat: @"Result (%d, %d, %d)", value[0], value[1], value[2]];
         });
     });
     

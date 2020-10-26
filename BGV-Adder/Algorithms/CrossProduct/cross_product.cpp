@@ -13,7 +13,7 @@
 
 using helib::Ctxt;
 
-array<long, CV_SIZE> compute_cross_product(array<u16, CV_SIZE> lhs, array<u16, CV_SIZE> rhs) {
+array<long, CV_SIZE> compute_cross_product(array<i16, CV_SIZE> lhs, array<i16, CV_SIZE> rhs) {
     long k = 128; // Security parameter
     long L = 16; // Number of levels in the modulus
     long c = 3; // Nr of columns in key switch matrix.
@@ -54,10 +54,51 @@ array<long, CV_SIZE> compute_cross_product(array<u16, CV_SIZE> lhs, array<u16, C
     }
     
     // Apply operations on the ciphertexts.
-    array<Ctxt, CV_SIZE> cipher_results = lhs_ciphertext;
+    // Cross product is vec a x b.
+    // 0 => ay * bz - az * by
+    // 1 => az * bx - ax * bz
+    // 2 => ax * by - ay * bx
+    
+    // Left hand side of equations
+    array<Ctxt, CV_SIZE> lhs_a = {
+        lhs_ciphertext[1], //ay
+        lhs_ciphertext[2], //az
+        lhs_ciphertext[0], //ax
+    };
+    array<Ctxt, CV_SIZE> lhs_b = {
+        rhs_ciphertext[2], //bz
+        rhs_ciphertext[0], //bx
+        rhs_ciphertext[1], //by
+    };
+    
+    // Compute first set of products
     for (size_t i = 0; i < CV_SIZE; ++i) {
-        cipher_results[i] *= rhs_ciphertext[i];
+        lhs_a[i] *= lhs_b[i];
     }
+    
+    // Right hand side of equations
+    array<Ctxt, CV_SIZE> rhs_a = {
+        lhs_ciphertext[2], //az
+        lhs_ciphertext[0], //ax
+        lhs_ciphertext[1], //ay
+    };
+    array<Ctxt, CV_SIZE> rhs_b = {
+        rhs_ciphertext[1], //by
+        rhs_ciphertext[2], //bz
+        rhs_ciphertext[0], //bx
+    };
+    
+    // Compute second set of products
+    for (size_t i = 0; i < CV_SIZE; ++i) {
+        rhs_a[i] *= rhs_b[i];
+    }
+    
+    // Compute negation of products
+    for (size_t i = 0; i < CV_SIZE; ++i) {
+        lhs_a[i] -= rhs_a[i];
+    }
+    
+    array<Ctxt, CV_SIZE> cipher_results = lhs_a;
     
     // Decrypt the results using secret key and convert back from
     // polynomial representation to numeric.
@@ -66,9 +107,14 @@ array<long, CV_SIZE> compute_cross_product(array<u16, CV_SIZE> lhs, array<u16, C
     for (size_t i = 0; i < 3; ++i) {
         NTL::ZZX zzx;
         secretKey.Decrypt(zzx, cipher_results[i]);
-        std::cout << zzx << std::endl;
         conv(return_values[i], zzx[0]);
+        // Compensate for negative numbers by checking if it's larger than p/2,
+        // In such case it wrapped around due to negative numbers
+        if (return_values[i] > p / 2) {
+            return_values[i] += (-1 * p);
+        }
     }
 
     return return_values;
 }
+
