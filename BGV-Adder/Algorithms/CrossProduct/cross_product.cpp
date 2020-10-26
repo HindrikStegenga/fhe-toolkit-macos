@@ -18,6 +18,10 @@ array<long, CV_SIZE> compute_cross_product(array<i16, CV_SIZE> lhs, array<i16, C
     long L = 16; // Number of levels in the modulus
     long c = 3; // Nr of columns in key switch matrix.
     long w = 64; // secret key hamming weight
+    
+    // Change to 65537 for noise warning. (Always fun times)
+    // Compensate for that by setting L = 128. (Increase modchain basically)
+    
     long p = 1021; // plaintext base
     long d = 0; // Degree of field extension
     long r = 1; // hensel lifting
