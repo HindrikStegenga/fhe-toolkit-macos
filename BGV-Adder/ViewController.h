@@ -35,4 +35,21 @@
 @property (weak) IBOutlet NSTextField *polyBTextField;
 @property (weak) IBOutlet NSTextField *polyCTextField;
 
+@property (weak) IBOutlet NSButton *lhsBit0;
+@property (weak) IBOutlet NSButton *lhsBit1;
+@property (weak) IBOutlet NSButton *lhsBit2;
+@property (weak) IBOutlet NSButton *lhsBit3;
+@property (weak) IBOutlet NSButton *lhsBit4;
+
+@property (weak) IBOutlet NSButton *rhsBit0;
+@property (weak) IBOutlet NSButton *rhsBit1;
+@property (weak) IBOutlet NSButton *rhsBit2;
+@property (weak) IBOutlet NSButton *rhsBit3;
+@property (weak) IBOutlet NSButton *rhsBit4;
+
+@property (weak) IBOutlet NSTextField *muBitTextField;
+@property (weak) IBOutlet NSTextField *niBitTextField;
+
+@property (weak) IBOutlet NSButton *bootstrapCheckBox;
+
 @end

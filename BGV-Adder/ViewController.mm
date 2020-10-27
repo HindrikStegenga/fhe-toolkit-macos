@@ -131,7 +131,34 @@
 }
 
 - (IBAction)didPressBinaryCompareBtn:(id)sender {
-    compare_binary_numbers( {0,0,0,0,0}, {0,0,0,0,1});
+    
+    NSButton* button = (NSButton*)sender;
+    button.enabled = false;
+    
+    array<bool, 5> lhs = {
+        self.lhsBit4.state == NSOnState ? true : false,
+        self.lhsBit3.state == NSOnState ? true : false,
+        self.lhsBit2.state == NSOnState ? true : false,
+        self.lhsBit1.state == NSOnState ? true : false,
+        self.lhsBit0.state == NSOnState ? true : false
+    };
+    
+    array<bool, 5> rhs = {
+        self.rhsBit4.state == NSOnState ? true : false,
+        self.rhsBit3.state == NSOnState ? true : false,
+        self.rhsBit2.state == NSOnState ? true : false,
+        self.rhsBit1.state == NSOnState ? true : false,
+        self.rhsBit0.state == NSOnState ? true : false
+    };
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        auto value = compare_binary_numbers( lhs, rhs);
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            button.enabled = true;
+            self.muBitTextField.stringValue = [NSString stringWithFormat: @"%d", value.first];
+            self.niBitTextField.stringValue = [NSString stringWithFormat: @"%d", value.second];
+        });
+    });
 }
 
 @end

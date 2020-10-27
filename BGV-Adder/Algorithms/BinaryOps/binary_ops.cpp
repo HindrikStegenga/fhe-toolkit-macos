@@ -23,7 +23,7 @@ using helib::Context;
 using std::vector;
 using std::array;
 
-bool compare_binary_numbers(array<bool, BIN_OPS_NR_BITS> lhs, array<bool, BIN_OPS_NR_BITS> rhs) {
+std::pair<long,long> compare_binary_numbers(array<bool, BIN_OPS_NR_BITS> lhs, array<bool, BIN_OPS_NR_BITS> rhs) {
     
     // Parameters(1, 5, false, 0, 1)
     //
@@ -122,5 +122,5 @@ bool compare_binary_numbers(array<bool, BIN_OPS_NR_BITS> lhs, array<bool, BIN_OP
     std::cout << "mu (a > b) " << slotsMu[0] << std::endl;
     std::cout << "ni (a < b) " << slotsNi[0] << std::endl;
     
-    return slotsMu[0];
+    return std::make_pair(slotsMu[0], slotsNi[0]);
 }

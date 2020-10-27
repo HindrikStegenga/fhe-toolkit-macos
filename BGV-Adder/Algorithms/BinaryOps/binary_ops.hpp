@@ -17,6 +17,6 @@ using std::array;
 static const size_t BIN_OPS_NR_BITS = 5;
 
 
-bool compare_binary_numbers(array<bool, BIN_OPS_NR_BITS> lhs, array<bool, BIN_OPS_NR_BITS> rhs);
+std::pair<long,long> compare_binary_numbers(array<bool, BIN_OPS_NR_BITS> lhs, array<bool, BIN_OPS_NR_BITS> rhs);
 
 #endif /* binary_ops_hpp */
