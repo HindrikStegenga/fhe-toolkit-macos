@@ -708,11 +708,11 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="993" height="141"/>
+                        <rect key="frame" x="0.0" y="0.0" width="993" height="228"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <tabView translatesAutoresizingMaskIntoConstraints="NO" id="UaZ-Hp-duq">
-                                <rect key="frame" x="1" y="-2" width="991" height="141"/>
+                                <rect key="frame" x="1" y="-2" width="991" height="228"/>
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
                                     <tabViewItem label="BGV Multiply" identifier="" id="qNg-2t-uBw">
@@ -1334,6 +1334,79 @@
                                             </constraints>
                                         </view>
                                     </tabViewItem>
+                                    <tabViewItem label="BGV Binary Comparison" identifier="" id="N41-h1-MoD">
+                                        <view key="view" id="Ifb-Zh-den">
+                                            <rect key="frame" x="10" y="33" width="971" height="182"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Pja-En-VN1" userLabel="Left">
+                                                    <rect key="frame" x="8" y="8" width="777" height="166"/>
+                                                </customView>
+                                                <customView translatesAutoresizingMaskIntoConstraints="NO" id="bZy-Zh-3KZ" userLabel="Right">
+                                                    <rect key="frame" x="785" y="8" width="178" height="166"/>
+                                                    <subviews>
+                                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fVz-37-dKM">
+                                                            <rect key="frame" x="2" y="130" width="174" height="32"/>
+                                                            <buttonCell key="cell" type="push" title="Compare" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XM4-PV-8UB">
+                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                <font key="font" metaFont="system"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="didPressBinaryCompareBtn:" target="XfG-lQ-9wD" id="xXs-j9-4Jq"/>
+                                                            </connections>
+                                                        </button>
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XmR-VS-weg">
+                                                            <rect key="frame" x="6" y="75" width="166" height="16"/>
+                                                            <textFieldCell key="cell" lineBreakMode="clipping" title="mu (a &gt; b): " id="76n-30-itK">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                        </textField>
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Nip-Ks-w65">
+                                                            <rect key="frame" x="6" y="51" width="166" height="16"/>
+                                                            <textFieldCell key="cell" lineBreakMode="clipping" title="ni   (a &lt; b): " id="0N0-2V-Vq2">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                        </textField>
+                                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nBF-AR-CCd">
+                                                            <rect key="frame" x="6" y="6" width="166" height="18"/>
+                                                            <buttonCell key="cell" type="check" title="Bootstrapping" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="IbX-h3-k3M">
+                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                <font key="font" metaFont="system"/>
+                                                            </buttonCell>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="nBF-AR-CCd" firstAttribute="leading" secondItem="bZy-Zh-3KZ" secondAttribute="leading" constant="8" id="1Ml-bC-jmf"/>
+                                                        <constraint firstAttribute="trailing" secondItem="nBF-AR-CCd" secondAttribute="trailing" constant="8" id="1Ur-sO-K4c"/>
+                                                        <constraint firstItem="XmR-VS-weg" firstAttribute="leading" secondItem="bZy-Zh-3KZ" secondAttribute="leading" constant="8" id="A7v-aN-TqN"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Nip-Ks-w65" secondAttribute="trailing" constant="8" id="HTF-K9-viD"/>
+                                                        <constraint firstItem="fVz-37-dKM" firstAttribute="leading" secondItem="bZy-Zh-3KZ" secondAttribute="leading" constant="8" id="KJG-b5-mPL"/>
+                                                        <constraint firstAttribute="trailing" secondItem="XmR-VS-weg" secondAttribute="trailing" constant="8" id="RIF-CD-1az"/>
+                                                        <constraint firstAttribute="bottom" secondItem="nBF-AR-CCd" secondAttribute="bottom" constant="8" id="WjP-oc-Tfg"/>
+                                                        <constraint firstItem="fVz-37-dKM" firstAttribute="top" secondItem="bZy-Zh-3KZ" secondAttribute="top" constant="8" id="Y8P-Hh-U4M"/>
+                                                        <constraint firstAttribute="trailing" secondItem="fVz-37-dKM" secondAttribute="trailing" constant="8" id="YSo-nt-6QU"/>
+                                                        <constraint firstItem="Nip-Ks-w65" firstAttribute="leading" secondItem="bZy-Zh-3KZ" secondAttribute="leading" constant="8" id="YXM-94-alT"/>
+                                                        <constraint firstItem="Nip-Ks-w65" firstAttribute="top" secondItem="XmR-VS-weg" secondAttribute="bottom" constant="8" id="cJZ-J0-dwu"/>
+                                                        <constraint firstItem="XmR-VS-weg" firstAttribute="centerY" secondItem="bZy-Zh-3KZ" secondAttribute="centerY" id="nYe-cS-OYp"/>
+                                                    </constraints>
+                                                </customView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="bZy-Zh-3KZ" firstAttribute="leading" secondItem="Pja-En-VN1" secondAttribute="trailing" id="4kF-py-vTO"/>
+                                                <constraint firstItem="Pja-En-VN1" firstAttribute="leading" secondItem="Ifb-Zh-den" secondAttribute="leading" constant="8" id="9pA-RD-TEo"/>
+                                                <constraint firstAttribute="bottom" secondItem="bZy-Zh-3KZ" secondAttribute="bottom" constant="8" id="HFN-DL-nuN"/>
+                                                <constraint firstItem="Pja-En-VN1" firstAttribute="width" secondItem="Ifb-Zh-den" secondAttribute="width" multiplier="0.8" id="N5s-tz-kLF"/>
+                                                <constraint firstItem="Pja-En-VN1" firstAttribute="top" secondItem="Ifb-Zh-den" secondAttribute="top" constant="8" id="SyZ-mv-VCQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="Pja-En-VN1" secondAttribute="bottom" constant="8" id="fdA-gx-lKU"/>
+                                                <constraint firstItem="bZy-Zh-3KZ" firstAttribute="top" secondItem="Ifb-Zh-den" secondAttribute="top" constant="8" id="gTw-iW-hSD"/>
+                                                <constraint firstAttribute="trailing" secondItem="bZy-Zh-3KZ" secondAttribute="trailing" constant="8" id="qxY-OB-QGu"/>
+                                            </constraints>
+                                        </view>
+                                    </tabViewItem>
                                 </tabViewItems>
                             </tabView>
                         </subviews>
@@ -1369,7 +1442,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="942" y="251"/>
+            <point key="canvasLocation" x="941.5" y="294"/>
         </scene>
     </scenes>
 </document>

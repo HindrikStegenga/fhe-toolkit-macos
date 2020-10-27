@@ -11,7 +11,13 @@
 #include <array>
 #include <helib/helib.h>
 #include <helib/FHE.h>
+#include <helib/binaryArith.h>
+#include <helib/binaryCompare.h>
+#include <helib/intraSlot.h>
+#include <algorithm>
 
+using helib::SecKey;
+using helib::PubKey;
 using helib::Ctxt;
 using helib::Context;
 using std::vector;
@@ -60,4 +66,61 @@ bool compare_binary_numbers(array<bool, BIN_OPS_NR_BITS> lhs, array<bool, BIN_OP
         context.makeBootstrappable(helib::convert<NTL::Vec<long>, vector<long>>(mvec), 0);
     }
     
+    // Setting up unpackslot encoding
+    std::vector<helib::zzX> unpackSlotEncoding;
+    helib::buildUnpackSlotEncoding(unpackSlotEncoding, *context.ea);
+    
+    // Generate Secret Key
+    SecKey secret_key(context);
+    secret_key.GenSecKey(); // Generate a fresh key
+    helib::addSome1DMatrices(secret_key); //Compute key switch matrices
+    helib::addFrbMatrices(secret_key); //Generate frobenius matrices.
+    
+    // Generate recryption data if necessary
+    if (bootstrap) {
+        secret_key.genRecryptData();
+    }
+    
+    const helib::EncryptedArray& ea = *context.ea;
+    
+    // Convert lhs and rhs into long represenations
+    long ptxt_lhs = std::accumulate(lhs.rbegin(), lhs.rend(), 0, [](int x, int y) { return (x << 1) + y; });
+    long ptxt_rhs = std::accumulate(rhs.rbegin(), rhs.rend(), 0, [](int x, int y) { return (x << 1) + y; });
+        
+    // Initialize all the cipher text vectors.
+    // This is so we can encrypt each bit into ctxt's
+    
+    // mu and ni are indicator bits. These are what we calculate in cipherspace.
+    // mu => a > b
+    // ni => a < b
+    helib::Ctxt mu(secret_key), ni(secret_key);
+    NTL::Vec<Ctxt> max_cipher, min_cipher, a_cipher, b_cipher;
+    helib::resize(a_cipher, bitsize, mu);
+    helib::resize(b_cipher, bitsize + 1, ni);
+    
+    // Encrypt all things
+    for (long i = 0; i < bitsize; ++i) {
+        secret_key.Encrypt(a_cipher[i], NTL::ZZX((ptxt_lhs >> i) & 1));
+        secret_key.Encrypt(b_cipher[i], NTL::ZZX((ptxt_rhs >> i) & 1));
+        if (bootstrap) { // put them at a lower level, required for bootstrapping
+            a_cipher[i].bringToSet(context.getCtxtPrimes(5));
+            b_cipher[i].bringToSet(context.getCtxtPrimes(5));
+        }
+    }
+    
+    std::vector<long> slotsMin, slotsMax, slotsMu, slotsNi;
+    compareTwoNumbers(mu,
+                        ni,
+                        helib::CtPtrs_VecCt(a_cipher),
+                        helib::CtPtrs_VecCt(b_cipher),
+                        false, //No 2 complement, (i.e. negative numbers)
+                        &unpackSlotEncoding);
+    
+    ea.decrypt(mu, secret_key, slotsMu);
+    ea.decrypt(ni, secret_key, slotsNi);
+    
+    std::cout << "mu (a > b) " << slotsMu[0] << std::endl;
+    std::cout << "ni (a < b) " << slotsNi[0] << std::endl;
+    
+    return slotsMu[0];
 }

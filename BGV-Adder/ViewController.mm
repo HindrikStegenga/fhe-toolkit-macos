@@ -12,6 +12,7 @@
 #include <helib/binaryArith.h>
 #include <helib/intraSlot.h>
 #include <helib/helib.h>
+#include "Algorithms/BinaryOps/binary_ops.hpp"
 #include "Algorithms/Multiplication/multiply.hpp"
 #include "Algorithms/CrossProduct/cross_product.hpp"
 #include "Algorithms/CKKSAdd/ckks_add.hpp"
@@ -127,6 +128,10 @@
     
     return;
     
+}
+
+- (IBAction)didPressBinaryCompareBtn:(id)sender {
+    compare_binary_numbers( {0,0,0,0,0}, {0,0,0,0,1});
 }
 
 @end
