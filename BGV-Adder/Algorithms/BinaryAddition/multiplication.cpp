@@ -29,12 +29,12 @@ long compute_bgv_multiply(uint16_t a, uint16_t b) {
     Ctxt scratch(context.public_key());
     std::vector<helib::Ctxt> encrypted_a(bitSize, scratch);
     std::vector<helib::Ctxt> encrypted_b(bitSize, scratch);
-    std::vector<helib::Ctxt> encrypted_c(bitSize, scratch);
+    //std::vector<helib::Ctxt> encrypted_c(bitSize, scratch);
     
     for (long i = 0; i < bitSize; ++i) {
       std::vector<long> a_vec(context.encrypted_array().size());
       std::vector<long> b_vec(context.encrypted_array().size());
-      std::vector<long> c_vec(context.encrypted_array().size());
+      //std::vector<long> c_vec(context.encrypted_array().size());
       // Extract the i'th bit of a and b.
       // We can compute with 3 numbers, but we only have two.
       // Set C to 1.
@@ -42,11 +42,12 @@ long compute_bgv_multiply(uint16_t a, uint16_t b) {
         slot = ((long(a)) >> i) & 1;
       for (auto& slot : b_vec)
         slot = ((long(b)) >> i) & 1;
-      for (auto& slot : c_vec)
-        slot = ((long(1)) >> i) & 1;
+      //for (auto& slot : c_vec)
+        //slot = ((long(1)) >> i) & 1;
+        
         context.encrypted_array().encrypt(encrypted_a[i], context.public_key(), a_vec);
         context.encrypted_array().encrypt(encrypted_b[i], context.public_key(), b_vec);
-        context.encrypted_array().encrypt(encrypted_c[i], context.public_key(), c_vec);
+        //context.encrypted_array().encrypt(encrypted_c[i], context.public_key(), c_vec);
     }
     
     // Multiply the encrypted numbers

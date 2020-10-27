@@ -12,7 +12,7 @@
 #include <helib/binaryArith.h>
 #include <helib/intraSlot.h>
 #include <helib/helib.h>
-#include "Algorithms/Multiplication/multiplication.hpp"
+#include "Algorithms/Multiplication/multiply.hpp"
 #include "Algorithms/CrossProduct/cross_product.hpp"
 #include "Algorithms/CKKSAdd/ckks_add.hpp"
 #include "Algorithms/QuadraticPolynomials/quadratic_polynomial.hpp"
@@ -67,7 +67,7 @@
     uint16_t b = [self.rightTextField.stringValue intValue];
     self.resultLabel.stringValue=@"Please wait...";
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        auto value = compute_bgv_multiply(a, b);
+        auto value = compute_multiplication(a, b);
         dispatch_async(dispatch_get_main_queue(), ^(void) {
             self.resultLabel.stringValue=[NSString stringWithFormat: @"Result %u", value];
             button.enabled = true;
