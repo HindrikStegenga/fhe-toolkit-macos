@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81B75C2B254858CC00D756D6 /* quadratic_polynomial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81B75C29254858CC00D756D6 /* quadratic_polynomial.cpp */; };
 		A50693E524C7298500FFF08B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A50693E424C7298500FFF08B /* AppDelegate.m */; settings = {COMPILER_FLAGS = "-W"; }; };
 		A50693EA24C7298A00FFF08B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A50693E924C7298A00FFF08B /* Assets.xcassets */; };
 		A50693ED24C7298A00FFF08B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A50693EB24C7298A00FFF08B /* Main.storyboard */; };
@@ -118,6 +119,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		81B75C29254858CC00D756D6 /* quadratic_polynomial.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = quadratic_polynomial.cpp; sourceTree = "<group>"; };
+		81B75C2A254858CC00D756D6 /* quadratic_polynomial.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = quadratic_polynomial.hpp; sourceTree = "<group>"; };
 		A50693E124C7298500FFF08B /* Credit Card Fraud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Credit Card Fraud.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A50693E324C7298500FFF08B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A50693E424C7298500FFF08B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -451,6 +454,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		81B75C2725484B8200D756D6 /* QuadraticPolynomials */ = {
+			isa = PBXGroup;
+			children = (
+				81B75C29254858CC00D756D6 /* quadratic_polynomial.cpp */,
+				81B75C2A254858CC00D756D6 /* quadratic_polynomial.hpp */,
+			);
+			path = QuadraticPolynomials;
+			sourceTree = "<group>";
+		};
 		A50693E224C7298500FFF08B /* Credit Card Fraud */ = {
 			isa = PBXGroup;
 			children = (
@@ -888,6 +900,7 @@
 		F53EFA8025406F660059164D /* Algorithms */ = {
 			isa = PBXGroup;
 			children = (
+				81B75C2725484B8200D756D6 /* QuadraticPolynomials */,
 				F5EFFC78254762780081DDB7 /* CKKSAdd */,
 				F56A9CD52546D45300A323C4 /* CrossProduct */,
 				F56A9CD42546D44800A323C4 /* Multiplication */,
@@ -1138,6 +1151,7 @@
 				F5EF9EB2253B2BE900139E34 /* AppDelegate.m in Sources */,
 				F5EFFC7B254762B40081DDB7 /* ckks_add.cpp in Sources */,
 				F5EF9EB3253B2BE900139E34 /* ViewController.h in Sources */,
+				81B75C2B254858CC00D756D6 /* quadratic_polynomial.cpp in Sources */,
 				F53EFA8425406FDE0059164D /* multiplication.cpp in Sources */,
 				F56A9CD82546D4CC00A323C4 /* cross_product.cpp in Sources */,
 				F5EF9EB4253B2BE900139E34 /* ViewController.mm in Sources */,

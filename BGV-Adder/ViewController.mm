@@ -15,6 +15,7 @@
 #include "Algorithms/Multiplication/multiplication.hpp"
 #include "Algorithms/CrossProduct/cross_product.hpp"
 #include "Algorithms/CKKSAdd/ckks_add.hpp"
+#include "Algorithms/QuadraticPolynomials/quadratic_polynomial.hpp"
 #include <iostream>
 
 
@@ -94,5 +95,28 @@
     return;
 }
 
+- (IBAction)didPressQuadraticPolynomialBtn:(id)sender {
+//    int16_t a = [self.polyATextField.stringValue intValue];
+//    int16_t b = [self.polyBTextField.stringValue intValue];
+//    int16_t c = [self.polyCTextField.stringValue intValue];
+//    int16_t x = [self.polyXTextField.stringValue intValue];
+    
+    int16_t a = -1;
+    int16_t b = -2;
+    int16_t c = -3;
+    int16_t x = -4;
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        long value = quadratic_polynomial(a, b, c, x);
+        std::cout << value << std::endl;
+        
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            self.polyResult.stringValue=[NSString stringWithFormat:@"Result =  %d", value];
+        });
+    });
+    
+    return;
+    
+}
 
 @end

@@ -29,5 +29,10 @@
 @property (weak) IBOutlet NSTextField *ckksLeftTextField;
 @property (weak) IBOutlet NSTextField *ckksRightTextField;
 @property (weak) IBOutlet NSTextField *ckksResultLbl;
+@property (weak) IBOutlet NSTextField *polyXTextField;
+@property (weak) IBOutlet NSTextField *polyResult;
+@property (weak) IBOutlet NSTextField *polyATextField;
+@property (weak) IBOutlet NSTextField *polyBTextField;
+@property (weak) IBOutlet NSTextField *polyCTextField;
 
 @end
