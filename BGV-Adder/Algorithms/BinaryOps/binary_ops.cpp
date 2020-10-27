@@ -23,20 +23,10 @@ using helib::Context;
 using std::vector;
 using std::array;
 
-std::pair<long,long> compare_binary_numbers(array<bool, BIN_OPS_NR_BITS> lhs, array<bool, BIN_OPS_NR_BITS> rhs) {
-    
-    // Parameters(1, 5, false, 0, 1)
-    //
+std::pair<long,long> compare_binary_numbers(array<bool, BIN_OPS_NR_BITS> lhs, array<bool, BIN_OPS_NR_BITS> rhs, bool bootstrap) {
     const long bitsize = BIN_OPS_NR_BITS; // Size in bits of inputs
-    bool bootstrap = false;
-    
-          // { p, phi(m),   m,   d,  m1, m2,  m3,    g1,  g2,  g3, ord1,ord2,ord3, B,  c}
-          // {2, 48,       105,  12, 3,  35,  0,     71,  76,  0,  2,    2,   0,   25, 2},
-          // {2, 600,      1023, 10, 11, 93,  0,    838,  584, 0,  10,   6,   0,   25, 2},
-    long p = 2;
-    long phi = 600;
-    long m = 1023;
-    long d = 10;
+    long p = 2; // plaintext prime
+    long m = 1023; // modulus
     
     // Factorization for bootstrapping process
     vector<long> mvec = { 11, 93, 0 };
@@ -52,7 +42,7 @@ std::pair<long,long> compare_binary_numbers(array<bool, BIN_OPS_NR_BITS> lhs, ar
     long L = bootstrap ? 900 : 30 * (7 + NTL::NumBits(bitsize + 2));
     // Key switch matrix columns
     long c = 2;
-    // Hensel
+    // Hensel value
     long r = 1;
     
     // Instantiate context

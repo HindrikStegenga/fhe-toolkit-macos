@@ -151,6 +151,8 @@
         self.rhsBit0.state == NSOnState ? true : false
     };
     
+    bool bootstrap = self.bootstrapCheckBox.state == NSOnState ? true : false;
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         auto value = compare_binary_numbers( lhs, rhs);
         dispatch_async(dispatch_get_main_queue(), ^(void) {
