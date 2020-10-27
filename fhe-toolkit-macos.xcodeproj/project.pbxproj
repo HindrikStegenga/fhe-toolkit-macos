@@ -74,6 +74,7 @@
 		A5F9515524C91B6100406273 /* x_test.h5 in Resources */ = {isa = PBXBuildFile; fileRef = A5F9515224C91B6100406273 /* x_test.h5 */; };
 		A5F9515924C9D72800406273 /* model_42098.h5 in Resources */ = {isa = PBXBuildFile; fileRef = A5F9515824C9D72800406273 /* model_42098.h5 */; };
 		F51E77DC2548B06E00335612 /* multiply.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F51E77DA2548B06E00335612 /* multiply.cpp */; };
+		F51E77E62548B54D00335612 /* binary_ops.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F51E77E42548B54D00335612 /* binary_ops.cpp */; };
 		F53EFA8425406FDE0059164D /* multiplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F53EFA8225406FDE0059164D /* multiplication.cpp */; };
 		F53EFA88254070A30059164D /* base_context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F53EFA86254070A30059164D /* base_context.cpp */; };
 		F56A9CD82546D4CC00A323C4 /* cross_product.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F56A9CD62546D4CC00A323C4 /* cross_product.cpp */; };
@@ -394,6 +395,8 @@
 		A5F9515824C9D72800406273 /* model_42098.h5 */ = {isa = PBXFileReference; lastKnownFileType = file; path = model_42098.h5; sourceTree = "<group>"; };
 		F51E77DA2548B06E00335612 /* multiply.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = multiply.cpp; sourceTree = "<group>"; };
 		F51E77DB2548B06E00335612 /* multiply.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = multiply.hpp; sourceTree = "<group>"; };
+		F51E77E42548B54D00335612 /* binary_ops.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = binary_ops.cpp; sourceTree = "<group>"; };
+		F51E77E52548B54D00335612 /* binary_ops.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = binary_ops.hpp; sourceTree = "<group>"; };
 		F53EFA8225406FDE0059164D /* multiplication.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = multiplication.cpp; sourceTree = "<group>"; };
 		F53EFA8325406FDE0059164D /* multiplication.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = multiplication.hpp; sourceTree = "<group>"; };
 		F53EFA86254070A30059164D /* base_context.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = base_context.cpp; sourceTree = "<group>"; };
@@ -900,21 +903,23 @@
 			path = data;
 			sourceTree = "<group>";
 		};
-		F51E77D92548B04D00335612 /* BinaryAddition */ = {
+		F51E77D92548B04D00335612 /* BinaryOps */ = {
 			isa = PBXGroup;
 			children = (
 				F53EFA8225406FDE0059164D /* multiplication.cpp */,
 				F53EFA8325406FDE0059164D /* multiplication.hpp */,
 				F53EFA86254070A30059164D /* base_context.cpp */,
 				F53EFA87254070A30059164D /* base_context.hpp */,
+				F51E77E42548B54D00335612 /* binary_ops.cpp */,
+				F51E77E52548B54D00335612 /* binary_ops.hpp */,
 			);
-			path = BinaryAddition;
+			path = BinaryOps;
 			sourceTree = "<group>";
 		};
 		F53EFA8025406F660059164D /* Algorithms */ = {
 			isa = PBXGroup;
 			children = (
-				F51E77D92548B04D00335612 /* BinaryAddition */,
+				F51E77D92548B04D00335612 /* BinaryOps */,
 				81B75C2725484B8200D756D6 /* QuadraticPolynomials */,
 				F5EFFC78254762780081DDB7 /* CKKSAdd */,
 				F56A9CD52546D45300A323C4 /* CrossProduct */,
@@ -1165,6 +1170,7 @@
 				F5EFFC7B254762B40081DDB7 /* ckks_add.cpp in Sources */,
 				F5EF9EB3253B2BE900139E34 /* ViewController.h in Sources */,
 				81B75C2B254858CC00D756D6 /* quadratic_polynomial.cpp in Sources */,
+				F51E77E62548B54D00335612 /* binary_ops.cpp in Sources */,
 				F51E77DC2548B06E00335612 /* multiply.cpp in Sources */,
 				F53EFA8425406FDE0059164D /* multiplication.cpp in Sources */,
 				F56A9CD82546D4CC00A323C4 /* cross_product.cpp in Sources */,
