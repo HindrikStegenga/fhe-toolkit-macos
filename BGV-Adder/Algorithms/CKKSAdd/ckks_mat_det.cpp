@@ -1,12 +1,12 @@
 //
-//  ckks_add.cpp
+//  ckks_mat_det.cpp
 //  BGV-Adder
 //
-//  Created by Hindrik Stegenga on 26/10/2020.
+//  Created by Hindrik Stegenga on 28/10/2020.
 //  Copyright © 2020 RUG. All rights reserved.
 //
 
-#include "ckks_add.hpp"
+#include "ckks_mat_det.hpp"
 #include <complex>
 #include <helib/norms.h>
 
@@ -17,7 +17,7 @@ using helib::PubKey;
 using std::vector;
 using std::complex;
 
-double ckks_add_doubles(double a, double b) {
+double ckks_mat_det_2x2(array<double, 4> mat){
     long m = 128; //Zm*
     long r = 20;  //bit precision
     long L = 150; //number of bits for the mod chain
@@ -41,42 +41,35 @@ double ckks_add_doubles(double a, double b) {
     auto encryptedArray = context.ea->getCx();
     
     
-    Ctxt lhsCtxt(pubKey), rhsCtxt(pubKey);
+    Ctxt a_Ctxt(pubKey), b_Ctxt(pubKey), c_Ctxt(pubKey), d_Ctxt(pubKey);
     // Encrypt our float values as complex number into our ciphertext
-    vector<complex<double>> lhs_cx = { complex<double>(a) };
-    vector<complex<double>> rhs_cx = { complex<double>(b) };
-    encryptedArray.encrypt(lhsCtxt, pubKey, lhs_cx);
-    encryptedArray.encrypt(rhsCtxt, pubKey, rhs_cx);
+    vector<complex<double>> a_cpx = { complex<double>(mat[0]) };
+    vector<complex<double>> b_cpx = { complex<double>(mat[1]) };
+    vector<complex<double>> c_cpx = { complex<double>(mat[2]) };
+    vector<complex<double>> d_cpx = { complex<double>(mat[3]) };
     
-    // Perform addition
-    lhsCtxt += rhsCtxt;
+    encryptedArray.encrypt(a_Ctxt, pubKey, a_cpx);
+    encryptedArray.encrypt(b_Ctxt, pubKey, b_cpx);
+    encryptedArray.encrypt(c_Ctxt, pubKey, c_cpx);
+    encryptedArray.encrypt(d_Ctxt, pubKey, d_cpx);
     
-    // Decrypt them
+    // Perform the computation required to get the matrix determinant
+    
+    a_Ctxt *= d_Ctxt;
+    b_Ctxt *= c_Ctxt;
+    a_Ctxt -= b_Ctxt;
+    // Decrypt it
     vector<complex<double>> result = {};
-    encryptedArray.decrypt(lhsCtxt, secretKey, result);
+    encryptedArray.decrypt(a_Ctxt, secretKey, result);
     
     // Retrieve the result back as double. (In our case this is the real part since we ignore imaginary one)
     double return_value = result[0].real();
     
-    std::cout << "Result: " << return_value << " Actual: " << a + b << std::endl;
+    std::cout << "Result: " << return_value << std::endl;
     
     return return_value;
 }
 
-
-// Compute the L-infinity distance between two vectors
-double calcMaxDiff(const vector<complex<double>>& v1,
-                   const vector<complex<double>>& v2)
-{
-  if (helib::lsize(v1) != helib::lsize(v2)) {
-    throw std::runtime_error("Vector sizes differ.");
-  }
-
-  double maxDiff = 0.0;
-  for (long i = 0; i < helib::lsize(v1); i++) {
-    double diffAbs = std::abs(v1[i] - v2[i]);
-    if (diffAbs > maxDiff)
-      maxDiff = diffAbs;
-  }
-  return maxDiff;
+double ckks_mat_det_3x3(array<double, 3> mat){
+    
 }

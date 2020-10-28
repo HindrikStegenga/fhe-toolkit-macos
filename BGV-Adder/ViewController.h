@@ -55,4 +55,19 @@
 @property (weak) IBOutlet NSTextField *complexRightTextField;
 @property (weak) IBOutlet NSTextField *complexResultLabel;
 
+@property (weak) IBOutlet NSTextField *matDetATextField;
+@property (weak) IBOutlet NSTextField *matDetBTextField;
+@property (weak) IBOutlet NSTextField *matDetCTextField;
+@property (weak) IBOutlet NSTextField *matDetDTextField;
+@property (weak) IBOutlet NSTextField *matDetETextField;
+@property (weak) IBOutlet NSTextField *matDetFTextField;
+@property (weak) IBOutlet NSTextField *matDetGTextField;
+@property (weak) IBOutlet NSTextField *matDetHTextField;
+@property (weak) IBOutlet NSTextField *matDetITextField;
+
+@property (weak) IBOutlet NSTextField *matDeterminantResultLbl;
+@property (weak) IBOutlet NSButton *mat2x2btn;
+@property (weak) IBOutlet NSButton *mat3x3btn;
+
+
 @end
