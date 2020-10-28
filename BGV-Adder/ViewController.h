@@ -69,5 +69,10 @@
 @property (weak) IBOutlet NSButton *mat2x2btn;
 @property (weak) IBOutlet NSButton *mat3x3btn;
 
+@property (weak) IBOutlet NSTextField *complexMulRealA;
+@property (weak) IBOutlet NSTextField *complexMulImagA;
+@property (weak) IBOutlet NSTextField *complexMulRealB;
+@property (weak) IBOutlet NSTextField *complexMulImagB;
+@property (weak) IBOutlet NSTextField *complexMulBtn;
 
 @end
