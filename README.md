@@ -1,4 +1,35 @@
 ----------------------------------------------------------------------------
+Fully Homomorphic Encryption Project for ATSP Course
+----------------------------------------------------------------------------
+Instructions for running the program: see Instructions.md
+You need a mac in order to run it. 
+
+
+Made by:
+Rishabh Sawhney
+Hindrik Stegenga
+Andris Jakubovskis
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Original contents of readme.md:
+
+----------------------------------------------------------------------------
 IBM Fully Homomorphic Encryption Toolkit for MacOS
 ----------------------------------------------------------------------------
 
