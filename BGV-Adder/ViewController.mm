@@ -16,6 +16,7 @@
 #include "Algorithms/Multiplication/multiply.hpp"
 #include "Algorithms/CrossProduct/cross_product.hpp"
 #include "Algorithms/CKKSAdd/ckks_add.hpp"
+#include "Algorithms/CKKSAdd/ckks_mul.hpp"
 #include "Algorithms/CKKS Matrix Determinants/ckks_mat_det.hpp"
 #include "Algorithms/QuadraticPolynomials/quadratic_polynomial.hpp"
 #include "Algorithms/ComplexConjugate/complex_conjugate.hpp"
@@ -239,6 +240,21 @@
     
 }
 - (IBAction)didPressComplexProductBtn:(id)sender {
+    NSButton* button = (NSButton*)sender;
+    
+    double a = [self.complexMulRealA.stringValue doubleValue];
+    double ai = [self.complexMulImagA.stringValue doubleValue];
+    double b = [self.complexMulRealB.stringValue doubleValue];
+    double bi = [self.complexMulImagB.stringValue doubleValue];
+    
+    self.complexMulResultField.stringValue = @"Please wait...";
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        auto value = ckks_mul_complex(a, ai, b, bi);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.complexMulResultField.stringValue = [NSString stringWithFormat:@"Result: %f + %fi", value.real(), value.imag()];
+            button.enabled = true;
+        });
+    });
 }
 
 @end

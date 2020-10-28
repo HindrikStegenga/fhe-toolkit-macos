@@ -717,14 +717,14 @@
                                 <tabViewItems>
                                     <tabViewItem label="BGV Multiply" identifier="" id="qNg-2t-uBw">
                                         <view key="view" id="etB-Kj-XI4">
-                                            <rect key="frame" x="10" y="33" width="2300" height="106"/>
+                                            <rect key="frame" x="10" y="33" width="7855" height="363"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kCB-Od-2WN">
-                                                    <rect key="frame" x="8" y="77" width="2284" height="21"/>
+                                                    <rect key="frame" x="8" y="334" width="7839" height="21"/>
                                                     <subviews>
                                                         <textField verticalHuggingPriority="750" placeholderIntrinsicWidth="20" placeholderIntrinsicHeight="21" translatesAutoresizingMaskIntoConstraints="NO" id="rl8-lD-3eW">
-                                                            <rect key="frame" x="0.0" y="0.0" width="759" height="21"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="2610" height="21"/>
                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="f4L-0i-O4y">
                                                                 <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" formatWidth="-1" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="0uK-U7-dul"/>
                                                                 <font key="font" metaFont="system"/>
@@ -733,7 +733,7 @@
                                                             </textFieldCell>
                                                         </textField>
                                                         <textField verticalHuggingPriority="750" placeholderIntrinsicWidth="20" placeholderIntrinsicHeight="21" translatesAutoresizingMaskIntoConstraints="NO" id="NN4-5t-wCp">
-                                                            <rect key="frame" x="763" y="0.0" width="758" height="21"/>
+                                                            <rect key="frame" x="2614" y="0.0" width="2611" height="21"/>
                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="dGQ-lY-9mj">
                                                                 <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" formatWidth="-1" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="Gnd-3D-exu"/>
                                                                 <font key="font" metaFont="system"/>
@@ -742,7 +742,7 @@
                                                             </textFieldCell>
                                                         </textField>
                                                         <button verticalHuggingPriority="750" placeholderIntrinsicWidth="20" placeholderIntrinsicHeight="21" translatesAutoresizingMaskIntoConstraints="NO" id="xUy-zI-qRF">
-                                                            <rect key="frame" x="1519" y="-7" width="771" height="32"/>
+                                                            <rect key="frame" x="5223" y="-7" width="2622" height="32"/>
                                                             <buttonCell key="cell" type="push" title="Compute" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Be8-31-GWx">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="system"/>
@@ -764,7 +764,7 @@
                                                     </customSpacing>
                                                 </stackView>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WI3-h5-cX0">
-                                                    <rect key="frame" x="6" y="53" width="2288" height="16"/>
+                                                    <rect key="frame" x="6" y="310" width="7843" height="16"/>
                                                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Please press the compute button." id="uSq-HN-onv">
                                                         <font key="font" usesAppearanceFont="YES"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -2410,11 +2410,11 @@
                         <outlet property="ckksResultLbl" destination="rK9-qE-nmk" id="iPg-x9-bQc"/>
                         <outlet property="ckksRightTextField" destination="9Z1-TE-a2C" id="iMC-bc-kAg"/>
                         <outlet property="complexLeftTextField" destination="kf0-8T-aAq" id="Wvh-sy-GkS"/>
-                        <outlet property="complexMulBtn" destination="Kyd-M0-h8P" id="rlu-K3-Fvk"/>
                         <outlet property="complexMulImagA" destination="iOu-wp-yOe" id="dZf-05-bfK"/>
                         <outlet property="complexMulImagB" destination="rsJ-aQ-sLy" id="osr-D3-gm7"/>
                         <outlet property="complexMulRealA" destination="hwc-lv-VF0" id="BC0-Pu-fJE"/>
                         <outlet property="complexMulRealB" destination="RIe-ng-Hel" id="uS4-ve-vpl"/>
+                        <outlet property="complexMulResultField" destination="Kyd-M0-h8P" id="rlu-K3-Fvk"/>
                         <outlet property="complexResultLabel" destination="Idq-h9-cMY" id="0BR-Bw-yuW"/>
                         <outlet property="complexRightTextField" destination="uzg-yB-DAB" id="I3h-qb-ice"/>
                         <outlet property="crossResultX" destination="GdF-1L-SEk" id="jdr-bp-W3U"/>
