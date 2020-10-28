@@ -56,7 +56,7 @@ double ckks_add_doubles(double a, double b) {
     encryptedArray.decrypt(lhsCtxt, secretKey, result);
     
     // Retrieve the result back as double. (In our case this is the real part since we ignore imaginary one)
-    double return_value = helib::largestCoeff(result);
+    double return_value = result[0].real();
     
     std::cout << "Result: " << return_value << " Actual: " << a + b << std::endl;
     
