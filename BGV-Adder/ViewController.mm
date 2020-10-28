@@ -168,13 +168,7 @@
 - (IBAction)didPressMatDet2x2Btn:(id)sender {
     self.mat2x2btn.enabled = false;
     self.mat3x3btn.enabled = false;
-    
-    
-    double a = [self.matDetATextField.stringValue doubleValue];
-    double b = [self.matDetATextField.stringValue doubleValue];
-    double c = [self.matDetATextField.stringValue doubleValue];
-    double d = [self.matDetATextField.stringValue doubleValue];
-    
+        
     array<double, 4> mat = {
         [self.matDetATextField.stringValue doubleValue],
         [self.matDetBTextField.stringValue doubleValue],
@@ -195,6 +189,31 @@
 }
 
 - (IBAction)didPressMatDet3x3Btn:(id)sender {
+    self.mat2x2btn.enabled = false;
+    self.mat3x3btn.enabled = false;
+   
+    array<double, 9> mat = {
+        [self.matDetATextField.stringValue doubleValue],
+        [self.matDetBTextField.stringValue doubleValue],
+        [self.matDetCTextField.stringValue doubleValue],
+        [self.matDetDTextField.stringValue doubleValue],
+        [self.matDetETextField.stringValue doubleValue],
+        [self.matDetFTextField.stringValue doubleValue],
+        [self.matDetGTextField.stringValue doubleValue],
+        [self.matDetHTextField.stringValue doubleValue],
+        [self.matDetITextField.stringValue doubleValue],
+    };
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        auto value = ckks_mat_det_3x3(mat);
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            
+            self.mat2x2btn.enabled = true;
+            self.mat3x3btn.enabled = true;
+            
+            self.matDeterminantResultLbl.stringValue = [NSString stringWithFormat: @"%f", value];
+        });
+    });
 }
 
 - (IBAction)didPressComplexComputeBtn:(id)sender {
