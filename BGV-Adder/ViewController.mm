@@ -16,7 +16,7 @@
 #include "Algorithms/Multiplication/multiply.hpp"
 #include "Algorithms/CrossProduct/cross_product.hpp"
 #include "Algorithms/CKKSAdd/ckks_add.hpp"
-#include "Algorithms/CKKSAdd/ckks_mat_det.hpp"
+#include "Algorithms/CKKS Matrix Determinants/ckks_mat_det.hpp"
 #include "Algorithms/QuadraticPolynomials/quadratic_polynomial.hpp"
 #include "Algorithms/ComplexConjugate/complex_conjugate.hpp"
 #include <iostream>

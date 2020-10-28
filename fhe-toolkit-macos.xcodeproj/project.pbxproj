@@ -921,9 +921,19 @@
 			path = BinaryOps;
 			sourceTree = "<group>";
 		};
+		F5324FA5254A22E600F1D505 /* CKKS Matrix Determinants */ = {
+			isa = PBXGroup;
+			children = (
+				F56F395B254A099100503497 /* ckks_mat_det.cpp */,
+				F56F395C254A099100503497 /* ckks_mat_det.hpp */,
+			);
+			path = "CKKS Matrix Determinants";
+			sourceTree = "<group>";
+		};
 		F53EFA8025406F660059164D /* Algorithms */ = {
 			isa = PBXGroup;
 			children = (
+				F5324FA5254A22E600F1D505 /* CKKS Matrix Determinants */,
 				81B75C3A2549A21A00D756D6 /* ComplexConjugate */,
 				F51E77D92548B04D00335612 /* BinaryOps */,
 				81B75C2725484B8200D756D6 /* QuadraticPolynomials */,
@@ -975,8 +985,6 @@
 			children = (
 				F5EFFC79254762B40081DDB7 /* ckks_add.cpp */,
 				F5EFFC7A254762B40081DDB7 /* ckks_add.hpp */,
-				F56F395B254A099100503497 /* ckks_mat_det.cpp */,
-				F56F395C254A099100503497 /* ckks_mat_det.hpp */,
 			);
 			path = CKKSAdd;
 			sourceTree = "<group>";
