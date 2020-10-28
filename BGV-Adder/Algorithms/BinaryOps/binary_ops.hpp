@@ -15,7 +15,9 @@
 using std::array;
 
 static const size_t BIN_OPS_NR_BITS = 5;
+typedef uint16_t u16;
 
+long compute_gcd(u16 lhs, u16 rhs, bool bootstrap = false);
 
 std::pair<long,long> compare_binary_numbers(array<bool, BIN_OPS_NR_BITS> lhs, array<bool, BIN_OPS_NR_BITS> rhs, bool bootstrap = false);
 
