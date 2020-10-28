@@ -21,7 +21,6 @@ double ckks_add_doubles(double a, double b) {
     long m = 128; //Zm*
     long r = 20;  //bit precision
     long L = 150; //number of bits for the mod chain
-    double epsilon = 0.01; //error treshold for the resulting double values
     
     // Setting up the context. p needs to be -1 for CKKS.
     auto context = Context(m, -1, r);
@@ -44,8 +43,8 @@ double ckks_add_doubles(double a, double b) {
     
     Ctxt lhsCtxt(pubKey), rhsCtxt(pubKey);
     // Encrypt our float values as complex number into our ciphertext
-    vector<complex<double>> lhs_cx = { std::complex<double>(a) };
-    vector<complex<double>> rhs_cx = { std::complex<double>(b) };
+    vector<complex<double>> lhs_cx = { complex<double>(a) };
+    vector<complex<double>> rhs_cx = { complex<double>(b) };
     encryptedArray.encrypt(lhsCtxt, pubKey, lhs_cx);
     encryptedArray.encrypt(rhsCtxt, pubKey, rhs_cx);
     
@@ -56,6 +55,28 @@ double ckks_add_doubles(double a, double b) {
     vector<complex<double>> result = {};
     encryptedArray.decrypt(lhsCtxt, secretKey, result);
     
-    // Retrieve the result back as double.
-    return helib::largestCoeff(result);
+    // Retrieve the result back as double. (In our case this is the real part since we ignore imaginary one)
+    double return_value = helib::largestCoeff(result);
+    
+    std::cout << "Result: " << return_value << " Actual: " << a + b << std::endl;
+    
+    return return_value;
+}
+
+
+// Compute the L-infinity distance between two vectors
+double calcMaxDiff(const vector<complex<double>>& v1,
+                   const vector<complex<double>>& v2)
+{
+  if (helib::lsize(v1) != helib::lsize(v2)) {
+    throw std::runtime_error("Vector sizes differ.");
+  }
+
+  double maxDiff = 0.0;
+  for (long i = 0; i < helib::lsize(v1); i++) {
+    double diffAbs = std::abs(v1[i] - v2[i]);
+    if (diffAbs > maxDiff)
+      maxDiff = diffAbs;
+  }
+  return maxDiff;
 }
