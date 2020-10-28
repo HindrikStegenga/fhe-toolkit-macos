@@ -48,25 +48,25 @@ using std::complex;
     vector<complex<double>> vd2 = { complex<double>(b) };
 
     
-  helib::Ctxt c1(pubKey), c2(pubKey);
-  std::vector<std::complex<double>> vd1, vd2, vd3;
+    helib::Ctxt c1(pubKey), c2(pubKey);
+    std::vector<std::complex<double>> vd1, vd2, vd3;
 
-  //Encrypt the values
-  encryptedArray.encrypt(c1, pubKey, vd1);
-  encryptedArray.encrypt(c2, pubKey, vd2);
-  NTL::xdouble expectedPtxtMag = c1.getPtxtMag() * c2.getPtxtMag();
-  c1 *= c2;
+    //Encrypt the values
+    encryptedArray.encrypt(c1, pubKey, vd1);
+    encryptedArray.encrypt(c2, pubKey, vd2);
+    NTL::xdouble expectedPtxtMag = c1.getPtxtMag() * c2.getPtxtMag();
+    c1 *= c2;
   
-  //Decrypting the values
-  encryptedArray.decrypt(c1, secretKey, vd3);
-  vector<complex<double>> actual = {};
+    //Decrypting the values
+    encryptedArray.decrypt(c1, secretKey, vd3);
+    vector<complex<double>> actual = {};
    
-  if (vd1.size() < vd2.size())
+    if (vd1.size() < vd2.size())
     vd1.resize(vd2.size(), 0);
-  for (std::size_t i = 0; i < vd2.size(); i++){
-    vd1[i] *= vd2[i];
-    actual.push_back(vd1[i]);
-  }
+    for (std::size_t i = 0; i < vd2.size(); i++){
+       vd1[i] *= vd2[i];
+       actual.push_back(vd1[i]);
+     }
     
   
     
@@ -79,10 +79,11 @@ using std::complex;
     double return_value = helib::largestCoeff(result);
     double actual_value = helib::largestCoeff(actual);
     
+    //Displaying the encrypted and decrypted values
     std::cout << "Result: " << return_value << " Actual: " <<actual_value<< std::endl;
     
     return return_value;
-}
+  }
 
 
 
