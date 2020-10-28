@@ -18,7 +18,7 @@ using helib::PubKey;
 using std::vector;
 using std::complex;
 
- double ckks_mul_doubles(double a, double b) {
+ double ckks_mul_doubles(double a,double ai,double b,double bi) {
     long m = 128; //Zm*
     long r = 20;  //bit precision
     long L = 150; //number of bits for the mod chain
@@ -44,8 +44,8 @@ using std::complex;
     
     //Ctxt c1(pubKey), c2(pubKey);
     // Encrypt our float values as complex number into our ciphertext
-    vector<complex<double>> vd1 = { complex<double>(a) };
-    vector<complex<double>> vd2 = { complex<double>(b) };
+    vector<complex<double>> vd1 = { complex<double>(a,ai) };
+    vector<complex<double>> vd2 = { complex<double>(b,bi) };
 
     
     helib::Ctxt c1(pubKey), c2(pubKey);
@@ -76,11 +76,13 @@ using std::complex;
     encryptedArray.decrypt(c1, secretKey, result);
     
     // Retrieve the result back as double. 
-    double return_value = helib::largestCoeff(result);
-    double actual_value = helib::largestCoeff(actual);
+    double return_value_real = result[0].real();
+    double return_value_imag = result[0].imag();
+    double actual_value_real = actual[0].real();
+    double actual_value_imag = actual[0].imag();
     
     //Displaying the encrypted and decrypted values
-    std::cout << "Result: " << return_value << " Actual: " <<actual_value<< std::endl;
+    std::cout << "Result: " << return_value_real<<" + i"<<return_value_imag << " Actual: " <<actual_value_real<<" + i"<<return_value_imag << std::endl;
     
     return return_value;
   }
