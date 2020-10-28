@@ -14,6 +14,6 @@
 double calcMaxDiff(const std::vector<std::complex<double>>& v1,
                    const std::vector<std::complex<double>>& v2);
 
-double ckks_add_doubles(double a, double b);
+double ckks_mul_doubles(double a, double b);
 
 #endif /* ckks_mul_hpp */
