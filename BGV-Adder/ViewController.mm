@@ -17,6 +17,7 @@
 #include "Algorithms/CrossProduct/cross_product.hpp"
 #include "Algorithms/CKKSAdd/ckks_add.hpp"
 #include "Algorithms/QuadraticPolynomials/quadratic_polynomial.hpp"
+#include "Algorithms/ComplexConjugate/complex_conjugate.hpp"
 #include <iostream>
 
 
@@ -161,6 +162,28 @@
             self.niBitTextField.stringValue = [NSString stringWithFormat: @"%d", value.second];
         });
     });
+}
+- (IBAction)didPressComplexComputeBtn:(id)sender {
+    
+    int16_t a = [self.complexLeftTextField.stringValue intValue];
+    int16_t b = [self.complexRightTextField.stringValue intValue];
+       
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        std::array<long, 2> value = complex_conjugate(a, b);
+           
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            
+            if (value[1] > -1) {
+                self.complexResultLabel.stringValue=[NSString stringWithFormat:@"Result = %d + %di", value[0], value[1]];
+            }
+            else {
+                self.complexResultLabel.stringValue=[NSString stringWithFormat:@"Result = %d %di", value[0], value[1]];
+            }
+        });
+    });
+       
+    return;
+    
 }
 
 @end

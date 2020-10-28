@@ -51,5 +51,8 @@
 @property (weak) IBOutlet NSTextField *niBitTextField;
 
 @property (weak) IBOutlet NSButton *bootstrapCheckBox;
+@property (weak) IBOutlet NSTextField *complexLeftTextField;
+@property (weak) IBOutlet NSTextField *complexRightTextField;
+@property (weak) IBOutlet NSTextField *complexResultLabel;
 
 @end
