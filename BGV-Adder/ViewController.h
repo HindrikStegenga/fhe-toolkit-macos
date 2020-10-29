@@ -75,4 +75,12 @@
 @property (weak) IBOutlet NSTextField *complexMulImagB;
 @property (weak) IBOutlet NSTextField *complexMulResultField;
 
+@property (weak) IBOutlet NSTextField *ckksRotateResultTextField;
+@property (weak) IBOutlet NSTextField *ckksRotateAmountTextField;
+@property (weak) IBOutlet NSTextField *ckksRotateRealTextField;
+@property (weak) IBOutlet NSTextField *ckksRotateImagTextField;
+
+
+
+
 @end
