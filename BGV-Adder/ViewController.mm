@@ -281,15 +281,45 @@ using std::complex;
     NSButton* button = (NSButton*)sender;
 
     auto lhs = array<array<complex<double>,3>, 3>({
-        array<complex<double>, 3>({complex<double>(1), complex<double>(1), complex<double>(1)}),
-        array<complex<double>, 3>({complex<double>(1), complex<double>(1), complex<double>(1)}),
-        array<complex<double>, 3>({complex<double>(1), complex<double>(1), complex<double>(1)}),
+        array<complex<double>, 3>({
+            complex<double>([self.matmulAR.stringValue doubleValue], [self.matmulAI.stringValue doubleValue]),
+            complex<double>([self.matmulBR.stringValue doubleValue], [self.matmulBI.stringValue doubleValue]),
+            complex<double>([self.matmulCR.stringValue doubleValue], [self.matmulCI.stringValue doubleValue])
+            
+        }),
+        array<complex<double>, 3>({
+            complex<double>([self.matmulDR.stringValue doubleValue], [self.matmulDI.stringValue doubleValue]),
+            complex<double>([self.matmulER.stringValue doubleValue], [self.matmulEI.stringValue doubleValue]),
+            complex<double>([self.matmulFR.stringValue doubleValue], [self.matmulFI.stringValue doubleValue])
+            
+        }),
+        array<complex<double>, 3>({
+            complex<double>([self.matmulGR.stringValue doubleValue], [self.matmulGI.stringValue doubleValue]),
+            complex<double>([self.matmulHR.stringValue doubleValue], [self.matmulHI.stringValue doubleValue]),
+            complex<double>([self.matmulIR.stringValue doubleValue], [self.matmulII.stringValue doubleValue])
+            
+        }),
     });
     
     auto rhs = array<array<complex<double>,3>, 3>({
-        array<complex<double>, 3>({complex<double>(1), complex<double>(1), complex<double>(1)}),
-        array<complex<double>, 3>({complex<double>(1), complex<double>(1), complex<double>(1)}),
-        array<complex<double>, 3>({complex<double>(1), complex<double>(1), complex<double>(1)}),
+        array<complex<double>, 3>({
+            complex<double>([self.matmulAR2.stringValue doubleValue], [self.matmulAI2.stringValue doubleValue]),
+            complex<double>([self.matmulBR2.stringValue doubleValue], [self.matmulBI2.stringValue doubleValue]),
+            complex<double>([self.matmulCR2.stringValue doubleValue], [self.matmulCI2.stringValue doubleValue])
+            
+        }),
+        array<complex<double>, 3>({
+            complex<double>([self.matmulDR2.stringValue doubleValue], [self.matmulDI2.stringValue doubleValue]),
+            complex<double>([self.matmulER2.stringValue doubleValue], [self.matmulEI2.stringValue doubleValue]),
+            complex<double>([self.matmulFR2.stringValue doubleValue], [self.matmulFI2.stringValue doubleValue])
+            
+        }),
+        array<complex<double>, 3>({
+            complex<double>([self.matmulGR2.stringValue doubleValue], [self.matmulGI2.stringValue doubleValue]),
+            complex<double>([self.matmulHR2.stringValue doubleValue], [self.matmulHI2.stringValue doubleValue]),
+            complex<double>([self.matmulIR2.stringValue doubleValue], [self.matmulII2.stringValue doubleValue])
+            
+        }),
     });
     
     
