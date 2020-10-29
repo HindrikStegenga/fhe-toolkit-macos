@@ -272,5 +272,17 @@ using std::complex;
         });
     });
 }
+- (IBAction)didPressCkksRotateBtn:(id)sender {
+    NSButton* button = (NSButton*)sender;
+    /*
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        auto value = ckks_mul_complex(a, ai, b, bi);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.complexMulResultField.stringValue = [NSString stringWithFormat:@"Result: %f + %fi", value.real(), value.imag()];
+            button.enabled = true;
+        });
+    });*/
+    
+}
 
 @end
