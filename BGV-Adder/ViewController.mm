@@ -15,6 +15,7 @@
 #include "Algorithms/BinaryOps/binary_ops.hpp"
 #include "Algorithms/Multiplication/multiply.hpp"
 #include "Algorithms/CrossProduct/cross_product.hpp"
+#include "Algorithms/CKKS Rotation/ckks_rotation.hpp"
 #include "Algorithms/CKKSAdd/ckks_add.hpp"
 #include "Algorithms/CKKSAdd/ckks_mul.hpp"
 #include "Algorithms/CKKS Complex Matrix Product/ckks_complex_matrix_product.hpp"
@@ -274,15 +275,18 @@ using std::complex;
 }
 - (IBAction)didPressCkksRotateBtn:(id)sender {
     NSButton* button = (NSButton*)sender;
-    /*
+    
+    double ar = [self.ckksRotateRealTextField.stringValue doubleValue];
+    double ai = [self.ckksRotateImagTextField.stringValue doubleValue];
+    double rotate = [self.ckksRotateAmountTextField.stringValue doubleValue];
+    button.enabled = false;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        auto value = ckks_mul_complex(a, ai, b, bi);
+        auto value = ckks_rotation(ar, ai, rotate);
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.complexMulResultField.stringValue = [NSString stringWithFormat:@"Result: %f + %fi", value.real(), value.imag()];
+            self.ckksRotateResultTextField.stringValue = [NSString stringWithFormat:@"Result: %f + %fi", value.real(), value.imag()];
             button.enabled = true;
         });
-    });*/
-    
+    });
 }
 
 @end

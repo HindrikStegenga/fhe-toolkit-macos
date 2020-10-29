@@ -20,7 +20,7 @@ void rotate(std::vector<std::complex<double>>& rotVec, long amt)
     
  }
 
- double ckks_rotation(double a,double ai,long amount) {
+ std::complex<double> ckks_rotation(double a,double ai,long amount) {
     long m = 128; //Zm*
     long r = 20;  //bit precision
     long L = 150; //number of bits for the mod chain
@@ -65,5 +65,5 @@ void rotate(std::vector<std::complex<double>>& rotVec, long amt)
     std::cout<<"Value when performed on encrypted data when rotated by "<<amount<<": "<<double(vd2[0].real())<<" +i"<<double(vd2[0].imag())<<std::endl;
     double result_real = double(vd2[0].real());
     double result_imag = double(vd2[0].imag());
-    return(result_real,result_imag);
+    return std::complex<double>(result_real,result_imag);
  }

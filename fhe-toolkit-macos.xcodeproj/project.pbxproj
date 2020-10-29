@@ -79,6 +79,7 @@
 		F51E77E62548B54D00335612 /* binary_ops.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F51E77E42548B54D00335612 /* binary_ops.cpp */; };
 		F5324FB0254A2F9400F1D505 /* ckks_mul.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5324FAF254A2F9400F1D505 /* ckks_mul.cpp */; };
 		F5324FB7254A331200F1D505 /* ckks_complex_matrix_product.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5324FB5254A331200F1D505 /* ckks_complex_matrix_product.cpp */; };
+		F567C564254B5FEB00C1DC51 /* ckks_rotation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F567C563254B5FEB00C1DC51 /* ckks_rotation.cpp */; };
 		F56A9CD82546D4CC00A323C4 /* cross_product.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F56A9CD62546D4CC00A323C4 /* cross_product.cpp */; };
 		F56F395D254A099100503497 /* ckks_mat_det.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F56F395B254A099100503497 /* ckks_mat_det.cpp */; };
 		F5EF9E97253B2B3400139E34 /* libhelib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A506953724C8B02300FFF08B /* libhelib.a */; };
@@ -417,6 +418,8 @@
 		F5324FAF254A2F9400F1D505 /* ckks_mul.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ckks_mul.cpp; sourceTree = "<group>"; };
 		F5324FB5254A331200F1D505 /* ckks_complex_matrix_product.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ckks_complex_matrix_product.cpp; sourceTree = "<group>"; };
 		F5324FB6254A331200F1D505 /* ckks_complex_matrix_product.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ckks_complex_matrix_product.hpp; sourceTree = "<group>"; };
+		F567C562254B5FEB00C1DC51 /* ckks_rotation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ckks_rotation.hpp; sourceTree = "<group>"; };
+		F567C563254B5FEB00C1DC51 /* ckks_rotation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ckks_rotation.cpp; sourceTree = "<group>"; };
 		F56A9CD62546D4CC00A323C4 /* cross_product.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = cross_product.cpp; sourceTree = "<group>"; };
 		F56A9CD72546D4CC00A323C4 /* cross_product.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = cross_product.hpp; sourceTree = "<group>"; };
 		F56F395B254A099100503497 /* ckks_mat_det.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ckks_mat_det.cpp; sourceTree = "<group>"; };
@@ -960,6 +963,7 @@
 		F53EFA8025406F660059164D /* Algorithms */ = {
 			isa = PBXGroup;
 			children = (
+				F567C55E254B5F5300C1DC51 /* CKKS Rotation */,
 				F5324FB4254A32FC00F1D505 /* CKKS Complex Matrix Product */,
 				F5324FA5254A22E600F1D505 /* CKKS Matrix Determinants */,
 				81B75C3A2549A21A00D756D6 /* ComplexConjugate */,
@@ -970,6 +974,15 @@
 				F56A9CD42546D44800A323C4 /* Multiplication */,
 			);
 			path = Algorithms;
+			sourceTree = "<group>";
+		};
+		F567C55E254B5F5300C1DC51 /* CKKS Rotation */ = {
+			isa = PBXGroup;
+			children = (
+				F567C563254B5FEB00C1DC51 /* ckks_rotation.cpp */,
+				F567C562254B5FEB00C1DC51 /* ckks_rotation.hpp */,
+			);
+			path = "CKKS Rotation";
 			sourceTree = "<group>";
 		};
 		F56A9CD42546D44800A323C4 /* Multiplication */ = {
@@ -1215,6 +1228,7 @@
 				F5324FB0254A2F9400F1D505 /* ckks_mul.cpp in Sources */,
 				F5EF9EB1253B2BE900139E34 /* AppDelegate.h in Sources */,
 				F5EF9EB2253B2BE900139E34 /* AppDelegate.m in Sources */,
+				F567C564254B5FEB00C1DC51 /* ckks_rotation.cpp in Sources */,
 				F56F395D254A099100503497 /* ckks_mat_det.cpp in Sources */,
 				F5EFFC7B254762B40081DDB7 /* ckks_add.cpp in Sources */,
 				F5EF9EB3253B2BE900139E34 /* ViewController.h in Sources */,

@@ -11,6 +11,6 @@
 #include <stdio.h>
 #include <helib/helib.h>
 
-double ckks_rotation(double a, double ai,long amount);
+std::complex<double> ckks_rotation(double a, double ai,long amount);
 
 #endif /* ckks_rotation_hpp */
