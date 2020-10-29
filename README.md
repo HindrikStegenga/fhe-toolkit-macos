@@ -6,10 +6,11 @@ You need a mac in order to run it.
 
 Instructions:
 
-Download dependencies and set up the toolkit. See instructions on fhe-toolkit github
-Open Xcode
-Add the BGV-Adder target.
-Run it
+Download dependencies and set up the toolkit. See instructions on fhe-toolkit github for further clarification.
+
+* Open Xcode
+* Add the BGV-Adder target.
+* Run it
 
 
 Made by:
