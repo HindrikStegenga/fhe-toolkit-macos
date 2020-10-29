@@ -81,6 +81,47 @@
 @property (weak) IBOutlet NSTextField *ckksRotateImagTextField;
 
 
+@property (weak) IBOutlet NSTextField *matmulAR;
+@property (weak) IBOutlet NSTextField *matmulAI;
+@property (weak) IBOutlet NSTextField *matmulBR;
+@property (weak) IBOutlet NSTextField *matmulBI;
+@property (weak) IBOutlet NSTextField *matmulCR;
+@property (weak) IBOutlet NSTextField *matmulCI;
+@property (weak) IBOutlet NSTextField *matmulDR;
+@property (weak) IBOutlet NSTextField *matmulDI;
+@property (weak) IBOutlet NSTextField *matmulER;
+@property (weak) IBOutlet NSTextField *matmulEI;
+@property (weak) IBOutlet NSTextField *matmulFR;
+@property (weak) IBOutlet NSTextField *matmulFI;
+@property (weak) IBOutlet NSTextField *matmulGR;
+@property (weak) IBOutlet NSTextField *matmulGI;
+@property (weak) IBOutlet NSTextField *matmulHR;
+@property (weak) IBOutlet NSTextField *matmulHI;
+@property (weak) IBOutlet NSTextField *matmulIR;
+@property (weak) IBOutlet NSTextField *matmulII;
 
+
+@property (weak) IBOutlet NSTextField *matmulAR2;
+@property (weak) IBOutlet NSTextField *matmulAI2;
+@property (weak) IBOutlet NSTextField *matmulBR2;
+@property (weak) IBOutlet NSTextField *matmulBI2;
+@property (weak) IBOutlet NSTextField *matmulCR2;
+@property (weak) IBOutlet NSTextField *matmulCI2;
+@property (weak) IBOutlet NSTextField *matmulDR2;
+@property (weak) IBOutlet NSTextField *matmulDI2;
+@property (weak) IBOutlet NSTextField *matmulER2;
+@property (weak) IBOutlet NSTextField *matmulEI2;
+@property (weak) IBOutlet NSTextField *matmulFR2;
+@property (weak) IBOutlet NSTextField *matmulFI2;
+@property (weak) IBOutlet NSTextField *matmulGR2;
+@property (weak) IBOutlet NSTextField *matmulGI2;
+@property (weak) IBOutlet NSTextField *matmulHR2;
+@property (weak) IBOutlet NSTextField *matmulHI2;
+@property (weak) IBOutlet NSTextField *matmulIR2;
+@property (weak) IBOutlet NSTextField *matmulII2;
+
+@property (weak) IBOutlet NSTextField *matmulresult1;
+@property (weak) IBOutlet NSTextField *matmulresult2;
+@property (weak) IBOutlet NSTextField *matmulresult3;
 
 @end
