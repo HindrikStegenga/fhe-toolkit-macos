@@ -7,6 +7,7 @@ Requirements :
 * xCode
 * NTL tools
 
+----------------------------------------------------------------------------
 Instructions:
 
 Download dependencies and set up the toolkit. See instructions on fhe-toolkit github for further clarification.
@@ -16,7 +17,7 @@ Download dependencies and set up the toolkit. See instructions on fhe-toolkit gi
 * Run it
 
 You can also find the instructions in Instructions.md file
-
+----------------------------------------------------------------------------
 Made by:
 * Rishabh Sawhney
 * Hindrik Stegenga
