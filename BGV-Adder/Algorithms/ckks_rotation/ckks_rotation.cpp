@@ -18,7 +18,7 @@ void rotate(std::vector<std::complex<double>>& rotVec, long amt)
     tmp[((i + amt) % sz + sz) % sz] = rotVec[i];
     rotVec = tmp;
     
-}
+ }
 
  double ckks_rotation(double a,double ai,long amount) {
     long m = 128; //Zm*
@@ -42,38 +42,28 @@ void rotate(std::vector<std::complex<double>>& rotVec, long amt)
     
     // Obtain encrypted array, Cx variant is specifically for approximate numbers.
     auto encryptedArray = context.ea->getCx();
-    
-    double a,ai;
-    // Encrypt our float values as complex number into our ciphertext
-    //std::cout<<"Enter the real part"<<std::endl;
-    //std::cin>>a;
-    //std::cout<<"Enter the imaginary part"<<std::endl;
-    //std::cin>>ai;
+   
     helib::Ctxt c1(pubKey);
     vector<complex<double>> vd1 = { complex<double>(a,ai) };
-    std::cout<<"The imaginary number is"<<vd1[0].real()<<" +i"<<vd1[0].imag()<<std::endl;
+    
     std::vector<std::complex<double>> vd2,vd3;
     NTL::xdouble rf, pm;
     NTL::ZZX poly;
 
     //Initializing the values
-    //encryptedArray.random(vd1);
-    //std::cout<<vd1[0].real()<<" + "<<vd1[0].imag()<<"i"<<std::endl;
+    
     encryptedArray.encrypt(c1, pubKey, vd1);
     pm = c1.getPtxtMag();
     encryptedArray.encode(poly, vd1, /*size=*/1.0);
-    long amount;
-    //std::cout<<"Enter the number of units you want to rotate the vector"<<std::endl;
-    //std::cin>>amount;
-
+    
     //Rotating the encrypted vector
     encryptedArray.rotate(c1, amount);
 
     //Decrypting the cipher using the secretKey
     encryptedArray.decrypt(c1, secretKey, vd2);
-
-    //Rotating the non-encrypted vector for tallying results
-     //rotate(vd1, amount);
-    std::cout<<"Max value when performed on encrypted data when rotated by "<<amount<<": "<<double(vd2[0].real())<<" +i"<<double(vd2[0].imag())<<std::endl;
-    //std::cout<<"Max value when performed on non-encrypted data when rotated by "<<amount<<": "<<double(vd3[0].real())<<" +i"<<double(vd3[0].imag())<<std::endl;
+    
+    std::cout<<"Value when performed on encrypted data when rotated by "<<amount<<": "<<double(vd2[0].real())<<" +i"<<double(vd2[0].imag())<<std::endl;
+    double result_real = double(vd2[0].real());
+    double result_imag = double(vd2[0].imag());
+    return(result_real,result_imag);
  }
