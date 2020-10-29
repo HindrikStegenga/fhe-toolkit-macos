@@ -1,14 +1,14 @@
 ----------------------------------------------------------------------------
-Fully Homomorphic Encryption Project for ATSP Course
+# Fully Homomorphic Encryption Project for ATSP Course
 ----------------------------------------------------------------------------
 
-Requirements : 
+## Requirements : 
 * macOS X
 * xCode
 * NTL tools
 
 ----------------------------------------------------------------------------
-Instructions:
+## Instructions:
 
 Download dependencies and set up the toolkit. See instructions on fhe-toolkit github for further clarification.
 
@@ -17,8 +17,9 @@ Download dependencies and set up the toolkit. See instructions on fhe-toolkit gi
 * Run it
 
 You can also find the instructions in Instructions.md file
+
 ----------------------------------------------------------------------------
-Made by:
+### Made by:
 * Rishabh Sawhney
 * Hindrik Stegenga
 * Andris Jakubovskis
