@@ -1,8 +1,11 @@
 ----------------------------------------------------------------------------
 Fully Homomorphic Encryption Project for ATSP Course
 ----------------------------------------------------------------------------
-Instructions for running the program: see Instructions.md
-You need a mac in order to run it. 
+
+Requirements : 
+* macOS X
+* xCode
+* NTL tools
 
 Instructions:
 
@@ -12,11 +15,12 @@ Download dependencies and set up the toolkit. See instructions on fhe-toolkit gi
 * Add the BGV-Adder target.
 * Run it
 
+You can also find the instructions in Instructions.md file
 
 Made by:
-Rishabh Sawhney
-Hindrik Stegenga
-Andris Jakubovskis
+* Rishabh Sawhney
+* Hindrik Stegenga
+* Andris Jakubovskis
 
 
 
