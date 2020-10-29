@@ -10,13 +10,21 @@
 ----------------------------------------------------------------------------
 ## Instructions:
 
-Download dependencies and set up the toolkit. See instructions on fhe-toolkit github for further clarification.
+``` bash
+git clone https://gitlab.com/alirezaghavamipour/fully-homomorphic-encryption.git
+cd fully-homomorphic-encryption
+cd dependencies
+./setup.sh
+```
+
+After this the project should be runnable. For a more visual guide on setting up the project you can also refer to https://github.com/IBM/fhe-toolkit-macos/blob/master/GettingStarted.md
+
+Project can be run by performing the actions below: 
 
 * Open Xcode
 * Add the BGV-Adder target.
 * Run it
 
-You can also find the instructions in Instructions.md file
 
 ----------------------------------------------------------------------------
 ### Made by:
@@ -27,17 +35,11 @@ You can also find the instructions in Instructions.md file
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 
 
 

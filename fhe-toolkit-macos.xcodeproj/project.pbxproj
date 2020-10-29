@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		81B75C2B254858CC00D756D6 /* quadratic_polynomial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81B75C29254858CC00D756D6 /* quadratic_polynomial.cpp */; };
 		81B75C3D2549A23200D756D6 /* complex_conjugate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81B75C3B2549A23200D756D6 /* complex_conjugate.cpp */; };
+		A0654B08254AFD6100075064 /* libgmp.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = A5F649CB244F73380087514D /* libgmp.dylib */; };
 		A50693E524C7298500FFF08B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A50693E424C7298500FFF08B /* AppDelegate.m */; settings = {COMPILER_FLAGS = "-W"; }; };
 		A50693EA24C7298A00FFF08B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A50693E924C7298A00FFF08B /* Assets.xcassets */; };
 		A50693ED24C7298A00FFF08B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A50693EB24C7298A00FFF08B /* Main.storyboard */; };
@@ -86,7 +87,7 @@
 		F5EF9E9A253B2B3400139E34 /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A506953D24C8BD7600FFF08B /* libboost_filesystem.dylib */; };
 		F5EF9E9B253B2B3400139E34 /* ntl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F649C4244F72700087514D /* ntl.a */; };
 		F5EF9E9C253B2B3400139E34 /* libgmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F649CA244F73380087514D /* libgmp.a */; };
-		F5EF9EA5253B2B3400139E34 /* libboost_filesystem.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = A506953D24C8BD7600FFF08B /* libboost_filesystem.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		F5EF9EA5253B2B3400139E34 /* libboost_filesystem.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = A506953D24C8BD7600FFF08B /* libboost_filesystem.dylib */; };
 		F5EF9EB1253B2BE900139E34 /* AppDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = F5EF9E38253B2A8900139E34 /* AppDelegate.h */; };
 		F5EF9EB2253B2BE900139E34 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5EF9E39253B2A8900139E34 /* AppDelegate.m */; };
 		F5EF9EB3253B2BE900139E34 /* ViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = F5EF9E3B253B2A8900139E34 /* ViewController.h */; };
@@ -98,6 +99,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		A0654B09254AFD6100075064 /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A0654B08254AFD6100075064 /* libgmp.dylib in Embed Libraries */,
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A5D0073624D3674100AAE351 /* Embed Libraries */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1035,6 +1047,7 @@
 				A56679F923F714CF00F122FD /* Sources */,
 				A56679FA23F714CF00F122FD /* Frameworks */,
 				A56679FB23F714CF00F122FD /* Resources */,
+				A0654B09254AFD6100075064 /* Embed Libraries */,
 			);
 			buildRules = (
 			);
@@ -1524,7 +1537,7 @@
 				CLANG_MODULES_DISABLE_PRIVATE_WARNING = YES;
 				CODE_SIGN_ENTITLEMENTS = "BGV-Adder/BGV_Adder.entitlements";
 				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = NO;
@@ -1569,7 +1582,7 @@
 				CLANG_MODULES_DISABLE_PRIVATE_WARNING = YES;
 				CODE_SIGN_ENTITLEMENTS = "BGV-Adder/BGV_Adder.entitlements";
 				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = NO;
