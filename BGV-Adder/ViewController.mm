@@ -17,11 +17,14 @@
 #include "Algorithms/CrossProduct/cross_product.hpp"
 #include "Algorithms/CKKSAdd/ckks_add.hpp"
 #include "Algorithms/CKKSAdd/ckks_mul.hpp"
+#include "Algorithms/CKKS Complex Matrix Product/ckks_complex_matrix_product.hpp"
 #include "Algorithms/CKKS Matrix Determinants/ckks_mat_det.hpp"
 #include "Algorithms/QuadraticPolynomials/quadratic_polynomial.hpp"
 #include "Algorithms/ComplexConjugate/complex_conjugate.hpp"
 #include <iostream>
+#include <complex>
 
+using std::complex;
 
 @implementation ViewController
 
@@ -71,6 +74,19 @@
     uint16_t b = [self.rightTextField.stringValue intValue];
     self.resultLabel.stringValue=@"Please wait...";
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        compute_complex_matrix_product( array<array<complex<double>,3>, 3>({
+            array<complex<double>, 3>({complex<double>(1), complex<double>(1), complex<double>(1)}),
+            array<complex<double>, 3>({complex<double>(1), complex<double>(1), complex<double>(1)}),
+            array<complex<double>, 3>({complex<double>(1), complex<double>(1), complex<double>(1)}),
+        }),
+            array<array<complex<double>,3>, 3>({
+            array<complex<double>, 3>({complex<double>(1), complex<double>(1), complex<double>(1)}),
+            array<complex<double>, 3>({complex<double>(1), complex<double>(1), complex<double>(1)}),
+            array<complex<double>, 3>({complex<double>(1), complex<double>(1), complex<double>(1)}),
+        }));
+        return;
+        
         auto value = compute_multiplication(a, b);
         dispatch_async(dispatch_get_main_queue(), ^(void) {
             self.resultLabel.stringValue=[NSString stringWithFormat: @"Result %u", value];
