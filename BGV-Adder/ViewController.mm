@@ -15,6 +15,7 @@
 #include "Algorithms/BinaryOps/binary_ops.hpp"
 #include "Algorithms/Multiplication/multiply.hpp"
 #include "Algorithms/CrossProduct/cross_product.hpp"
+#include "Algorithms/CKKS Rotation/ckks_rotation.hpp"
 #include "Algorithms/CKKSAdd/ckks_add.hpp"
 #include "Algorithms/CKKSAdd/ckks_mul.hpp"
 #include "Algorithms/CKKS Complex Matrix Product/ckks_complex_matrix_product.hpp"
@@ -74,19 +75,6 @@ using std::complex;
     uint16_t b = [self.rightTextField.stringValue intValue];
     self.resultLabel.stringValue=@"Please wait...";
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        compute_complex_matrix_product( array<array<complex<double>,3>, 3>({
-            array<complex<double>, 3>({complex<double>(1), complex<double>(1), complex<double>(1)}),
-            array<complex<double>, 3>({complex<double>(1), complex<double>(1), complex<double>(1)}),
-            array<complex<double>, 3>({complex<double>(1), complex<double>(1), complex<double>(1)}),
-        }),
-            array<array<complex<double>,3>, 3>({
-            array<complex<double>, 3>({complex<double>(1), complex<double>(1), complex<double>(1)}),
-            array<complex<double>, 3>({complex<double>(1), complex<double>(1), complex<double>(1)}),
-            array<complex<double>, 3>({complex<double>(1), complex<double>(1), complex<double>(1)}),
-        }));
-        return;
-        
         auto value = compute_multiplication(a, b);
         dispatch_async(dispatch_get_main_queue(), ^(void) {
             self.resultLabel.stringValue=[NSString stringWithFormat: @"Result %u", value];
@@ -274,14 +262,83 @@ using std::complex;
 }
 - (IBAction)didPressCkksRotateBtn:(id)sender {
     NSButton* button = (NSButton*)sender;
-    /*
+    
+    double ar = [self.ckksRotateRealTextField.stringValue doubleValue];
+    double ai = [self.ckksRotateImagTextField.stringValue doubleValue];
+    double rotate = [self.ckksRotateAmountTextField.stringValue doubleValue];
+    button.enabled = false;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        auto value = ckks_mul_complex(a, ai, b, bi);
+        auto value = ckks_rotation(ar, ai, rotate);
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.complexMulResultField.stringValue = [NSString stringWithFormat:@"Result: %f + %fi", value.real(), value.imag()];
+            self.ckksRotateResultTextField.stringValue = [NSString stringWithFormat:@"Result: %f + %fi", value.real(), value.imag()];
             button.enabled = true;
         });
-    });*/
+    });
+}
+- (IBAction)didPressMatComplexMulBtn:(id)sender {
+    
+    
+    NSButton* button = (NSButton*)sender;
+
+    auto lhs = array<array<complex<double>,3>, 3>({
+        array<complex<double>, 3>({
+            complex<double>([self.matmulAR.stringValue doubleValue], [self.matmulAI.stringValue doubleValue]),
+            complex<double>([self.matmulBR.stringValue doubleValue], [self.matmulBI.stringValue doubleValue]),
+            complex<double>([self.matmulCR.stringValue doubleValue], [self.matmulCI.stringValue doubleValue])
+            
+        }),
+        array<complex<double>, 3>({
+            complex<double>([self.matmulDR.stringValue doubleValue], [self.matmulDI.stringValue doubleValue]),
+            complex<double>([self.matmulER.stringValue doubleValue], [self.matmulEI.stringValue doubleValue]),
+            complex<double>([self.matmulFR.stringValue doubleValue], [self.matmulFI.stringValue doubleValue])
+            
+        }),
+        array<complex<double>, 3>({
+            complex<double>([self.matmulGR.stringValue doubleValue], [self.matmulGI.stringValue doubleValue]),
+            complex<double>([self.matmulHR.stringValue doubleValue], [self.matmulHI.stringValue doubleValue]),
+            complex<double>([self.matmulIR.stringValue doubleValue], [self.matmulII.stringValue doubleValue])
+            
+        }),
+    });
+    
+    auto rhs = array<array<complex<double>,3>, 3>({
+        array<complex<double>, 3>({
+            complex<double>([self.matmulAR2.stringValue doubleValue], [self.matmulAI2.stringValue doubleValue]),
+            complex<double>([self.matmulBR2.stringValue doubleValue], [self.matmulBI2.stringValue doubleValue]),
+            complex<double>([self.matmulCR2.stringValue doubleValue], [self.matmulCI2.stringValue doubleValue])
+            
+        }),
+        array<complex<double>, 3>({
+            complex<double>([self.matmulDR2.stringValue doubleValue], [self.matmulDI2.stringValue doubleValue]),
+            complex<double>([self.matmulER2.stringValue doubleValue], [self.matmulEI2.stringValue doubleValue]),
+            complex<double>([self.matmulFR2.stringValue doubleValue], [self.matmulFI2.stringValue doubleValue])
+            
+        }),
+        array<complex<double>, 3>({
+            complex<double>([self.matmulGR2.stringValue doubleValue], [self.matmulGI2.stringValue doubleValue]),
+            complex<double>([self.matmulHR2.stringValue doubleValue], [self.matmulHI2.stringValue doubleValue]),
+            complex<double>([self.matmulIR2.stringValue doubleValue], [self.matmulII2.stringValue doubleValue])
+            
+        }),
+    });
+    
+    
+    button.enabled = false;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        auto value = compute_complex_matrix_product(lhs, rhs);
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            self.matmulresult1.stringValue = [NSString stringWithFormat:@"[ %f + %fi, %f + %fi, %f + %fi ]", value[0][0].real(), value[0][0].imag(), value[0][1].real(), value[0][1].imag(), value[0][2].real(), value[0][2].imag()];
+            
+            self.matmulresult2.stringValue = [NSString stringWithFormat:@"[ %f + %fi, %f + %fi, %f + %fi ]", value[1][0].real(), value[1][0].imag(), value[1][1].real(), value[1][1].imag(), value[1][2].real(), value[1][2].imag()];
+            
+            self.matmulresult3.stringValue = [NSString stringWithFormat:@"[ %f + %fi, %f + %fi, %f + %fi ]", value[2][0].real(), value[2][0].imag(), value[2][1].real(), value[2][1].imag(), value[2][2].real(), value[2][2].imag()];
+            
+            button.enabled = true;
+        });
+    });
     
 }
 
