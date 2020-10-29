@@ -73,6 +73,6 @@
 @property (weak) IBOutlet NSTextField *complexMulImagA;
 @property (weak) IBOutlet NSTextField *complexMulRealB;
 @property (weak) IBOutlet NSTextField *complexMulImagB;
-@property (weak) IBOutlet NSTextField *complexMulBtn;
+@property (weak) IBOutlet NSTextField *complexMulResultField;
 
 @end
